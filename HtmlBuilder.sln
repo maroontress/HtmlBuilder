@@ -1,0 +1,33 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28606.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HtmlBuilder", "HtmlBuilder\HtmlBuilder.csproj", "{8F772CE7-8A22-44A8-B9C7-4F06CC6D5565}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HtmlBuilder.Test", "HtmlBuilder.Test\HtmlBuilder.Test.csproj", "{4AA03D6D-50D1-470B-A8D1-A8BA8FAB8439}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8F772CE7-8A22-44A8-B9C7-4F06CC6D5565} = {8F772CE7-8A22-44A8-B9C7-4F06CC6D5565}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8F772CE7-8A22-44A8-B9C7-4F06CC6D5565}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F772CE7-8A22-44A8-B9C7-4F06CC6D5565}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F772CE7-8A22-44A8-B9C7-4F06CC6D5565}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F772CE7-8A22-44A8-B9C7-4F06CC6D5565}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AA03D6D-50D1-470B-A8D1-A8BA8FAB8439}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AA03D6D-50D1-470B-A8D1-A8BA8FAB8439}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AA03D6D-50D1-470B-A8D1-A8BA8FAB8439}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AA03D6D-50D1-470B-A8D1-A8BA8FAB8439}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {36ED247F-9AC4-433B-AAC7-49969999826B}
+	EndGlobalSection
+EndGlobal

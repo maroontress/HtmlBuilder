@@ -1,0 +1,21 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: microsoft/dotnet:2.2.104-sdk
+    steps:
+      - run: curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
+      - run: apt-get install git-lfs
+      - checkout
+      - run: pwd
+      - run: dotnet restore
+      - run: dotnet build
+      - run: dotnet test -p:CollectCoverage=true -p:CoverletOutputFormat=opencover --no-build HtmlBuilder.Test
+      - run: sh coverage-report.sh
+      - store_artifacts:
+          path: /root/project/Coverlet-html
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build

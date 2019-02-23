@@ -1,0 +1,47 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <IsPackable>false</IsPackable>
+    <AssemblyName>Maroontress.HtmlBuilder.Test</AssemblyName>
+    <RootNamespace>Maroontress.HtmlBuilder.Test</RootNamespace>
+    <LangVersion>7.3</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>dcx\Maroontress.HtmlBuilder.Test.xml</DocumentationFile>
+    <CodeAnalysisRuleSet>HtmlBuilder.Test.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="dcx\**" />
+    <EmbeddedResource Remove="dcx\**" />
+    <None Remove="dcx\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="stylecop.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="stylecop.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="coverlet.msbuild" Version="2.5.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.0.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="1.4.0" />
+    <PackageReference Include="MSTest.TestFramework" Version="1.4.0" />
+    <PackageReference Include="ReportGenerator" Version="4.0.14" />
+    <PackageReference Include="StyleChecker" Version="1.0.20" PrivateAssets="all" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.1-beta.61" PrivateAsssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HtmlBuilder\HtmlBuilder.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,81 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Maroontress.HtmlBuilder</RootNamespace>
+    <AssemblyName>Maroontress.HtmlBuilder</AssemblyName>
+    <LangVersion>7.3</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>Maroontress.HtmlBuilder</PackageId>
+    <PackageVersion>1.0.0.0</PackageVersion>
+    <Authors>Tomohisa Tanaka</Authors>
+    <PackageProjectUrl>https://maroontress.github.io/HtmlBuilder/</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/maroontress/HtmlBuilder</RepositoryUrl>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Description>HtmlBuilder is an HTML document builder.</Description>
+    <PackageReleaseNotes>See https://maroontress.github.io/HtmlBuilder/releasenotes.html</PackageReleaseNotes>
+    <Copyright>Copyright (c) 2019 Maroontress Fast Software</Copyright>
+    <PackageTags>HTML</PackageTags>
+    <NoPackageAnalysis>true</NoPackageAnalysis>
+    <Version>1.0.0.0</Version>
+    <RepositoryType />
+    <Company>Maroontress Fast Software</Company>
+    <LangVersion>7.3</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <CodeAnalysisRuleSet>HtmlBuilder.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <CodeAnalysisRuleSet>HtmlBuilder.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="dcx\**" />
+    <EmbeddedResource Remove="dcx\**" />
+    <None Remove="dcx\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="stylecop.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="stylecop.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="StyleChecker.Annotations" Version="1.0.1" />
+    <PackageReference Include="System.Collections.Immutable" Version="1.5.0" />
+    <PackageReference Include="StyleChecker" Version="1.0.20" PrivateAssets="all" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.1-beta.61" PrivateAssets="all" />
+  </ItemGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>dcx\Maroontress.HtmlBuilder.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="nuget\readme.txt">
+      <Pack>true</Pack>
+      <PackagePath>\</PackagePath>
+    </Content>
+    <Content Include="nuget\COPYRIGHT.txt">
+      <Pack>true</Pack>
+      <PackagePath>\</PackagePath>
+    </Content>
+    <Content Include="nuget\LEGAL_NOTICES.txt">
+      <Pack>true</Pack>
+      <PackagePath>\</PackagePath>
+    </Content>
+  </ItemGroup>
+
+  <PropertyGroup>
+    <PackageLicenseFile>COPYRIGHT.txt</PackageLicenseFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+</Project>

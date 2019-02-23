@@ -1,0 +1,4 @@
+Acknowledgments:
+
+Portions of this software may utilize the following copyrighted materials,
+the use of which is hereby acknowledged.

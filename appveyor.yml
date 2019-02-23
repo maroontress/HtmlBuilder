@@ -1,0 +1,10 @@
+version: '{build}'
+image: Visual Studio 2017
+configuration: Debug
+platform: Any CPU
+init:
+- cmd: git config --global core.autocrlf true
+before_build:
+- cmd: nuget restore
+build:
+  verbosity: minimal
