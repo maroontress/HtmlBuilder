@@ -10,6 +10,11 @@ namespace Maroontress.Html
     public interface Node
     {
         /// <summary>
+        /// Gets the kind of this node.
+        /// </summary>
+        NodeKind Kind { get; }
+
+        /// <summary>
         /// Returns the object associated this node that is created with the
         /// specified visitor.
         /// </summary>

@@ -24,5 +24,8 @@ namespace Maroontress.Html.Impl
         /// <inheritdoc/>
         public override void Accept(NodeVisitor visitor)
             => visitor.VisitText(Text);
+
+        /// <inheritdoc/>
+        protected override NodeKind GetKind() => NodeKind.Text;
     }
 }

@@ -81,5 +81,8 @@ namespace Maroontress.Html.Impl
         /// <inheritdoc/>
         public override void Accept(NodeVisitor visitor)
             => visitor.VisitTag(in data);
+
+        /// <inheritdoc/>
+        protected override NodeKind GetKind() => NodeKind.Tag;
     }
 }
