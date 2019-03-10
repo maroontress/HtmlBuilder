@@ -66,14 +66,6 @@ namespace Maroontress.Html.Test
         {
             var nodeOf = Nodes.NewFactory();
             var custom = nodeOf.EmptyTag("custom");
-            var children = new[] { nodeOf.P, nodeOf.Br, }
-                as IEnumerable<Node>;
-            Assert.ThrowsException<InvalidOperationException>(
-                () => custom.Add(children));
-            Assert.ThrowsException<InvalidOperationException>(
-                () => custom.Add(nodeOf.P, nodeOf.Br));
-            Assert.ThrowsException<InvalidOperationException>(
-                () => custom.Add("text"));
             Check(
                 custom.AddAttributes(("name", "value")),
                 "<custom name=\"value\">");
@@ -94,7 +86,7 @@ namespace Maroontress.Html.Test
         {
             var nodeOf = Nodes.NewFactory();
             var custom = nodeOf.Tag("custom");
-            var children = new[] { nodeOf.P, nodeOf.Br, }
+            var children = new Node[] { nodeOf.P, nodeOf.Br, }
                 as IEnumerable<Node>;
             Check(
                 custom.Add(children),
@@ -128,7 +120,8 @@ namespace Maroontress.Html.Test
             Assert.AreEqual("br", nodeOf.Br.Name);
         }
 
-        private static void CommonAttributeTest(Tag custom)
+        private static void CommonAttributeTest<T>(T custom)
+            where T : BaseTag<T>
         {
             Assert.ThrowsException<ArgumentException>(
                 () => custom.AddAttributes(("", "")));

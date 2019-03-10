@@ -33,7 +33,7 @@ namespace Maroontress.Html
         /// Gets <c>area</c> element representing hyperlink or dead area on an
         /// image map.
         /// </summary>
-        Tag Area { get; }
+        EmptyTag Area { get; }
 
         /// <summary>
         /// Gets <c>article</c> element representing self-contained
@@ -63,7 +63,7 @@ namespace Maroontress.Html
         /// Gets <c>base</c> element representing base URL and default target
         /// browsing context for hyperlinks and forms.
         /// </summary>
-        Tag Base { get; }
+        EmptyTag Base { get; }
 
         /// <summary>
         /// Gets <c>bdi</c> element representing text directionality isolation.
@@ -91,7 +91,7 @@ namespace Maroontress.Html
         /// Gets <c>br</c> element representing line break, e.g., in poem or
         /// postal address.
         /// </summary>
-        Tag Br { get; }
+        EmptyTag Br { get; }
 
         /// <summary>
         /// Gets <c>button</c> element representing button control.
@@ -123,7 +123,7 @@ namespace Maroontress.Html
         /// <summary>
         /// Gets <c>col</c> element representing table column.
         /// </summary>
-        Tag Col { get; }
+        EmptyTag Col { get; }
 
         /// <summary>
         /// Gets <c>colgroup</c> element representing group of columns in a
@@ -198,7 +198,7 @@ namespace Maroontress.Html
         /// <summary>
         /// Gets <c>embed</c> element representing plugin.
         /// </summary>
-        Tag Embed { get; }
+        EmptyTag Embed { get; }
 
         /* F */
 
@@ -276,7 +276,7 @@ namespace Maroontress.Html
         /// <summary>
         /// Gets <c>hr</c> element representing thematic break.
         /// </summary>
-        Tag Hr { get; }
+        EmptyTag Hr { get; }
 
         /// <summary>
         /// Gets <c>html</c> element representing root element.
@@ -298,12 +298,12 @@ namespace Maroontress.Html
         /// <summary>
         /// Gets <c>img</c> element representing image.
         /// </summary>
-        Tag Img { get; }
+        EmptyTag Img { get; }
 
         /// <summary>
         /// Gets <c>input</c> element representing form control.
         /// </summary>
-        Tag Input { get; }
+        EmptyTag Input { get; }
 
         /// <summary>
         /// Gets <c>ins</c> element representing an addition to the document.
@@ -338,7 +338,7 @@ namespace Maroontress.Html
         /// <summary>
         /// Gets <c>link</c> element representing link metadata.
         /// </summary>
-        Tag Link { get; }
+        EmptyTag Link { get; }
 
         /* M */
 
@@ -360,7 +360,7 @@ namespace Maroontress.Html
         /// <summary>
         /// Gets <c>meta</c> element representing text metadata.
         /// </summary>
-        Tag Meta { get; }
+        EmptyTag Meta { get; }
 
         /// <summary>
         /// Gets <c>meter</c> element representing gauge.
@@ -421,7 +421,7 @@ namespace Maroontress.Html
         /// <summary>
         /// Gets <c>param</c> element representing parameter for object.
         /// </summary>
-        Tag Param { get; }
+        EmptyTag Param { get; }
 
         /// <summary>
         /// Gets <c>picture</c> element representing image.
@@ -511,7 +511,7 @@ namespace Maroontress.Html
         /// Gets <c>source</c> element representing media source for video or
         /// audio or as image source for picture.
         /// </summary>
-        Tag Source { get; }
+        EmptyTag Source { get; }
 
         /// <summary>
         /// Gets <c>span</c> element representing generic phrasing container.
@@ -607,7 +607,7 @@ namespace Maroontress.Html
         /// <summary>
         /// Gets <c>track</c> element representing timed text track.
         /// </summary>
-        Tag Track { get; }
+        EmptyTag Track { get; }
 
         /* U */
 
@@ -638,7 +638,7 @@ namespace Maroontress.Html
         /// <summary>
         /// Gets <c>wbr</c> element representing line breaking opportunity.
         /// </summary>
-        Tag Wbr { get; }
+        EmptyTag Wbr { get; }
 
         /* others */
 
@@ -664,7 +664,7 @@ namespace Maroontress.Html
         /// The new element.
         /// </returns>
         [return: DoNotIgnore]
-        Tag EmptyTag(string name);
+        EmptyTag EmptyTag(string name);
 
         /// <summary>
         /// Gets a new text node containing the specified text.

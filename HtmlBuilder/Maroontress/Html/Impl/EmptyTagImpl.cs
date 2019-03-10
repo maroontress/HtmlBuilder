@@ -1,13 +1,11 @@
 namespace Maroontress.Html.Impl
 {
     using System;
-    using System.Collections.Generic;
-    using StyleChecker.Annotations;
 
     /// <summary>
-    /// The default implementation of empty <see cref="Tag"/>s.
+    /// The default implementation of empty <see cref="EmptyTag"/>s.
     /// </summary>
-    public sealed class EmptyTagImpl : AbstractNode, Tag
+    public sealed class EmptyTagImpl : AbstractNode, EmptyTag
     {
         private readonly TagStruct data;
 
@@ -41,19 +39,7 @@ namespace Maroontress.Html.Impl
         public string Name => data.Name;
 
         /// <inheritdoc/>
-        public Tag Add([Unused] IEnumerable<Node> children)
-            => throw new InvalidOperationException();
-
-        /// <inheritdoc/>
-        public Tag Add([Unused] params Node[] children)
-            => throw new InvalidOperationException();
-
-        /// <inheritdoc/>
-        public Tag Add([Unused] string text)
-            => throw new InvalidOperationException();
-
-        /// <inheritdoc/>
-        public Tag AddAttributes(
+        public EmptyTag AddAttributes(
             params (string name, string value)[] attributes)
             => new EmptyTagImpl(
                 this,
@@ -61,17 +47,17 @@ namespace Maroontress.Html.Impl
                     data.Attributes.ContainsKey, attributes));
 
         /// <inheritdoc/>
-        public Tag AddClass(params string[] values)
+        public EmptyTag AddClass(params string[] values)
             => new EmptyTagImpl(
                 this, Attributes.GetAddingClassModifier(values));
 
         /// <inheritdoc/>
-        public Tag WithClass(params string[] values)
+        public EmptyTag WithClass(params string[] values)
             => new EmptyTagImpl(
                 this, Attributes.GetReplacingClassModifier(values));
 
         /// <inheritdoc/>
-        public Tag WithId(string id)
+        public EmptyTag WithId(string id)
             => new EmptyTagImpl(this, Attributes.GetReplacingIdModifier(id));
 
         /// <inheritdoc/>

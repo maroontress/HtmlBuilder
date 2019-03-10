@@ -17,7 +17,7 @@ namespace Maroontress.Html.Impl
         public Tag Address { get; } = new TagImpl(nameof(Address));
 
         /// <inheritdoc/>
-        public Tag Area { get; } = new EmptyTagImpl(nameof(Area));
+        public EmptyTag Area { get; } = new EmptyTagImpl(nameof(Area));
 
         /// <inheritdoc/>
         public Tag Article { get; } = new TagImpl(nameof(Article));
@@ -32,7 +32,7 @@ namespace Maroontress.Html.Impl
         public Tag B { get; } = new TagImpl(nameof(B));
 
         /// <inheritdoc/>
-        public Tag Base { get; } = new EmptyTagImpl(nameof(Base));
+        public EmptyTag Base { get; } = new EmptyTagImpl(nameof(Base));
 
         /// <inheritdoc/>
         public Tag Bdi { get; } = new TagImpl(nameof(Bdi));
@@ -47,7 +47,7 @@ namespace Maroontress.Html.Impl
         public Tag Body { get; } = new TagImpl(nameof(Body));
 
         /// <inheritdoc/>
-        public Tag Br { get; } = new EmptyTagImpl(nameof(Br));
+        public EmptyTag Br { get; } = new EmptyTagImpl(nameof(Br));
 
         /// <inheritdoc/>
         public Tag Button { get; } = new TagImpl(nameof(Button));
@@ -65,7 +65,7 @@ namespace Maroontress.Html.Impl
         public Tag Code { get; } = new TagImpl(nameof(Code));
 
         /// <inheritdoc/>
-        public Tag Col { get; } = new EmptyTagImpl(nameof(Col));
+        public EmptyTag Col { get; } = new EmptyTagImpl(nameof(Col));
 
         /// <inheritdoc/>
         public Tag Colgroup { get; } = new TagImpl(nameof(Colgroup));
@@ -104,7 +104,7 @@ namespace Maroontress.Html.Impl
         public Tag Em { get; } = new TagImpl(nameof(Em));
 
         /// <inheritdoc/>
-        public Tag Embed { get; } = new EmptyTagImpl(nameof(Embed));
+        public EmptyTag Embed { get; } = new EmptyTagImpl(nameof(Embed));
 
         /// <inheritdoc/>
         public Tag Fieldset { get; } = new TagImpl(nameof(Fieldset));
@@ -146,7 +146,7 @@ namespace Maroontress.Html.Impl
         public Tag Header { get; } = new TagImpl(nameof(Header));
 
         /// <inheritdoc/>
-        public Tag Hr { get; } = new EmptyTagImpl(nameof(Hr));
+        public EmptyTag Hr { get; } = new EmptyTagImpl(nameof(Hr));
 
         /// <inheritdoc/>
         public Tag Html { get; } = new TagImpl(nameof(Html));
@@ -158,10 +158,10 @@ namespace Maroontress.Html.Impl
         public Tag Iframe { get; } = new TagImpl(nameof(Iframe));
 
         /// <inheritdoc/>
-        public Tag Img { get; } = new EmptyTagImpl(nameof(Img));
+        public EmptyTag Img { get; } = new EmptyTagImpl(nameof(Img));
 
         /// <inheritdoc/>
-        public Tag Input { get; } = new EmptyTagImpl(nameof(Input));
+        public EmptyTag Input { get; } = new EmptyTagImpl(nameof(Input));
 
         /// <inheritdoc/>
         public Tag Ins { get; } = new TagImpl(nameof(Ins));
@@ -179,7 +179,7 @@ namespace Maroontress.Html.Impl
         public Tag Li { get; } = new TagImpl(nameof(Li));
 
         /// <inheritdoc/>
-        public Tag Link { get; } = new EmptyTagImpl(nameof(Link));
+        public EmptyTag Link { get; } = new EmptyTagImpl(nameof(Link));
 
         /// <inheritdoc/>
         public Tag Main { get; } = new TagImpl(nameof(Main));
@@ -191,7 +191,7 @@ namespace Maroontress.Html.Impl
         public Tag Mark { get; } = new TagImpl(nameof(Mark));
 
         /// <inheritdoc/>
-        public Tag Meta { get; } = new EmptyTagImpl(nameof(Meta));
+        public EmptyTag Meta { get; } = new EmptyTagImpl(nameof(Meta));
 
         /// <inheritdoc/>
         public Tag Meter { get; } = new TagImpl(nameof(Meter));
@@ -221,7 +221,7 @@ namespace Maroontress.Html.Impl
         public Tag P { get; } = new TagImpl(nameof(P));
 
         /// <inheritdoc/>
-        public Tag Param { get; } = new EmptyTagImpl(nameof(Param));
+        public EmptyTag Param { get; } = new EmptyTagImpl(nameof(Param));
 
         /// <inheritdoc/>
         public Tag Picture { get; } = new TagImpl(nameof(Picture));
@@ -269,7 +269,7 @@ namespace Maroontress.Html.Impl
         public Tag Small { get; } = new TagImpl(nameof(Small));
 
         /// <inheritdoc/>
-        public Tag Source { get; } = new EmptyTagImpl(nameof(Source));
+        public EmptyTag Source { get; } = new EmptyTagImpl(nameof(Source));
 
         /// <inheritdoc/>
         public Tag Span { get; } = new TagImpl(nameof(Span));
@@ -323,7 +323,7 @@ namespace Maroontress.Html.Impl
         public Tag Tr { get; } = new TagImpl(nameof(Tr));
 
         /// <inheritdoc/>
-        public Tag Track { get; } = new EmptyTagImpl(nameof(Track));
+        public EmptyTag Track { get; } = new EmptyTagImpl(nameof(Track));
 
         /// <inheritdoc/>
         public Tag U { get; } = new TagImpl(nameof(U));
@@ -338,13 +338,13 @@ namespace Maroontress.Html.Impl
         public Tag Video { get; } = new TagImpl(nameof(Video));
 
         /// <inheritdoc/>
-        public Tag Wbr { get; } = new EmptyTagImpl(nameof(Wbr));
+        public EmptyTag Wbr { get; } = new EmptyTagImpl(nameof(Wbr));
 
         /// <inheritdoc/>
         public Tag Tag(string name) => new TagImpl(name);
 
         /// <inheritdoc/>
-        public Tag EmptyTag(string name) => new EmptyTagImpl(name);
+        public EmptyTag EmptyTag(string name) => new EmptyTagImpl(name);
 
         /// <inheritdoc/>
         public Node Text(string text) => new TextImpl(text);
