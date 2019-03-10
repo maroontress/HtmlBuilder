@@ -19,8 +19,8 @@ namespace Maroontress.Html
         void VisitTag(in TagStruct tag);
 
         /// <summary>
-        /// Performs the operation on the empty <see cref="Tag"/>s
-        /// representing void elements.
+        /// Performs the operation on the empty <see cref="Tag"/>
+        /// representing a void element.
         /// </summary>
         /// <param name="tag">
         /// The <see cref="TagStruct"/> object that the tag object contains.

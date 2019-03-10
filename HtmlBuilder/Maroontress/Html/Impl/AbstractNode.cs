@@ -8,6 +8,9 @@ namespace Maroontress.Html.Impl
     public abstract class AbstractNode : Node
     {
         /// <inheritdoc/>
+        public NodeKind Kind => GetKind();
+
+        /// <inheritdoc/>
         public abstract void Accept(NodeVisitor visitor);
 
         /// <inheritdoc/>
@@ -18,5 +21,13 @@ namespace Maroontress.Html.Impl
             writer.Close();
             return writer.ToString();
         }
+
+        /// <summary>
+        /// Gets the kind of this node.
+        /// </summary>
+        /// <returns>
+        /// The kind of this node.
+        /// </returns>
+        protected abstract NodeKind GetKind();
     }
 }

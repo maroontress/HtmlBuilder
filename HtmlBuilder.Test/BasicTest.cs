@@ -120,6 +120,15 @@ namespace Maroontress.Html.Test
             Assert.AreEqual("br", nodeOf.Br.Name);
         }
 
+        [TestMethod]
+        public void Kind()
+        {
+            var nodeOf = Nodes.NewFactory();
+            Assert.AreEqual(NodeKind.Text, nodeOf.Text("").Kind);
+            Assert.AreEqual(NodeKind.EmptyTag, nodeOf.Br.Kind);
+            Assert.AreEqual(NodeKind.Tag, nodeOf.P.Kind);
+        }
+
         private static void CommonAttributeTest<T>(T custom)
             where T : BaseTag<T>
         {
