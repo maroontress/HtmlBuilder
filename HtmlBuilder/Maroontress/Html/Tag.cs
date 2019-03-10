@@ -12,6 +12,11 @@ namespace Maroontress.Html
     public interface Tag : Node
     {
         /// <summary>
+        /// Gets the name of this tag in lowercase letters.
+        /// </summary>
+        string Name { get; }
+
+        /// <summary>
         /// Gets a new <see cref="Tag"/> object with the <c>id</c> attribute
         /// that has the specified value.
         /// </summary>

@@ -39,6 +39,9 @@ namespace Maroontress.Html.Impl
         }
 
         /// <inheritdoc/>
+        public string Name => data.Name;
+
+        /// <inheritdoc/>
         public Tag Add(IEnumerable<Node> children)
             => new TagImpl(this, d =>
             {

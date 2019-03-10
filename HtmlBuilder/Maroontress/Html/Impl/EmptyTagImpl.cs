@@ -38,6 +38,9 @@ namespace Maroontress.Html.Impl
         }
 
         /// <inheritdoc/>
+        public string Name => data.Name;
+
+        /// <inheritdoc/>
         public Tag Add([Unused] IEnumerable<Node> children)
             => throw new InvalidOperationException();
 

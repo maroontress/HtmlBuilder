@@ -120,6 +120,14 @@ namespace Maroontress.Html.Test
             CommonAttributeTest(custom);
         }
 
+        [TestMethod]
+        public void Name()
+        {
+            var nodeOf = Nodes.NewFactory();
+            Assert.AreEqual("p", nodeOf.P.Name);
+            Assert.AreEqual("br", nodeOf.Br.Name);
+        }
+
         private static void CommonAttributeTest(Tag custom)
         {
             Assert.ThrowsException<ArgumentException>(
