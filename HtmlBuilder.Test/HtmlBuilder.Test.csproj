@@ -36,7 +36,7 @@
     <PackageReference Include="MSTest.TestAdapter" Version="1.4.0" />
     <PackageReference Include="MSTest.TestFramework" Version="1.4.0" />
     <PackageReference Include="ReportGenerator" Version="4.0.15" />
-    <PackageReference Include="StyleChecker" Version="1.0.20" PrivateAssets="all" />
+    <PackageReference Include="StyleChecker" Version="1.0.21" PrivateAssets="all" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.1-rc.114" PrivateAsssets="all">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

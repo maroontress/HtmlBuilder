@@ -141,7 +141,7 @@ namespace Maroontress.Html.Impl
 
             var invalid = attributes.Select(a => a.name)
                 .FirstOrDefault(n => !IsValid(n));
-            if (invalid != null)
+            if (!(invalid is null))
             {
                 throw new ArgumentException(
                     $"'{invalid}' is not valid for the attribute name");
@@ -149,7 +149,7 @@ namespace Maroontress.Html.Impl
             var delta = attributes.Select(a => ToPair(a.name, a.value));
             var keys = delta.Select(p => p.Key);
             var specialName = keys.FirstOrDefault(SpecialNameSet.Contains);
-            if (specialName != null)
+            if (!(specialName is null))
             {
                 throw new ArgumentException(
                     $"attribute name '{specialName}' is not allowed.");
@@ -158,13 +158,13 @@ namespace Maroontress.Html.Impl
                 .Where(g => g.Count() > 1)
                 .Select(g => g.Key)
                 .FirstOrDefault();
-            if (selfDuplicatedKey != null)
+            if (!(selfDuplicatedKey is null))
             {
                 throw new ArgumentException(
                     $"attribute name '{selfDuplicatedKey}' is duplicated");
             }
             var duplicated = keys.FirstOrDefault(isDuplicated);
-            if (duplicated != null)
+            if (!(duplicated is null))
             {
                 throw new ArgumentException(
                     $"attribute name '{duplicated}' has already been added");
@@ -182,7 +182,7 @@ namespace Maroontress.Html.Impl
         {
             var invalid = values
                 .FirstOrDefault(n => !IsNonEmptyAndContainsNoSpaces(n));
-            if (invalid != null)
+            if (!(invalid is null))
             {
                 throw new ArgumentException(
                     $"'{invalid}' is not valid for the class attribute value");
