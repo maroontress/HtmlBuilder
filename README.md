@@ -85,7 +85,7 @@ For example, <span class="reverse">low battery</span> and so on.</p>
 ## Requirements for build
 
 - Visual Studio 2017 Version 15.9
-  or [.NET Core 2.2 SDK (SDK 2.2.104)][dotnet-core-sdk]
+  or [.NET Core 2.2 SDK (SDK 2.2.105)][dotnet-core-sdk]
 
 ## How to get started
 
@@ -105,4 +105,4 @@ sh coverage-report.sh
 ```
 
 [dotnet-core-sdk]:
-  https://www.microsoft.com/net/download/thank-you/dotnet-sdk-2.2.104-windows-x64-installer
+  https://dotnet.microsoft.com/download/thank-you/dotnet-sdk-2.2.105-windows-x64-installer
