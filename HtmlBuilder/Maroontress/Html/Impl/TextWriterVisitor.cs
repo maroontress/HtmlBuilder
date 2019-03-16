@@ -48,7 +48,7 @@ namespace Maroontress.Html.Impl
         {
             Write("<");
             Write(tag.Name);
-            if (tag.Id != null)
+            if (!(tag.Id is null))
             {
                 Write(" id=\"");
                 WriteAttribute(tag.Id);
