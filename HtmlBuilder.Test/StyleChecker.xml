@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<config xmlns="https://maroontress.com/StyleChecker/config.v1"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="https://maroontress.com/StyleChecker/config.v1 config.v1.xsd">
+
+  <ByteOrderMark>
+    <files glob="**/*.xml"/>
+    <files glob="**/*.Designer.cs"/>
+    <files glob="**/*.csproj"/>
+  </ByteOrderMark>
+
+</config>
