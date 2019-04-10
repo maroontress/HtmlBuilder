@@ -6,6 +6,11 @@ namespace Maroontress.Html
     public enum NodeKind
     {
         /// <summary>
+        /// Represents a character reference node.
+        /// </summary>
+        CharacterReference,
+
+        /// <summary>
         /// Represents a text node.
         /// </summary>
         Text,

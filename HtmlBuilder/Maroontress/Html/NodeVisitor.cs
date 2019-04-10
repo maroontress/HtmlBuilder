@@ -19,6 +19,14 @@ namespace Maroontress.Html
         void VisitTag(in TagStruct tag);
 
         /// <summary>
+        /// Performs the operation on the entity node.
+        /// </summary>
+        /// <param name="text">
+        /// The string representing a character reference of the entity.
+        /// </param>
+        void VisitEntity(string text);
+
+        /// <summary>
         /// Performs the operation on the empty <see cref="Tag"/>
         /// representing a void element.
         /// </summary>

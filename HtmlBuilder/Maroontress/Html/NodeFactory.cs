@@ -643,6 +643,14 @@ namespace Maroontress.Html
         /* others */
 
         /// <summary>
+        /// Gets an entity object.
+        /// </summary>
+        /// <returns>
+        /// The entity object.
+        /// </returns>
+        EntityFactory EntityFactory { get; }
+
+        /// <summary>
         /// Gets a new element that has the specified name.
         /// </summary>
         /// <param name="name">
