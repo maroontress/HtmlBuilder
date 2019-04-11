@@ -341,7 +341,7 @@ namespace Maroontress.Html.Impl
         public EmptyTag Wbr { get; } = new EmptyTagImpl(nameof(Wbr));
 
         /// <inheritdoc/>
-        public EntityFactory EntityFactory { get; } = new EntityFactoryImpl();
+        public Entity Entity { get; } = new EntityImpl();
 
         /// <inheritdoc/>
         public Tag Tag(string name) => new TagImpl(name);
@@ -351,5 +351,9 @@ namespace Maroontress.Html.Impl
 
         /// <inheritdoc/>
         public Node Text(string text) => new TextImpl(text);
+
+        /// <inheritdoc/>
+        public Node CharacterReference(int codePoint)
+            => new CharacterReferenceImpl(codePoint);
     }
 }

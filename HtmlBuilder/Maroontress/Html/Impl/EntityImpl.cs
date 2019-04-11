@@ -1,11 +1,11 @@
-#pragma warning disable LongLine
+#pragma warning disable SA1300, LongLine
 
 namespace Maroontress.Html.Impl
 {
     /// <summary>
-    /// The default implementation of <see cref="EntityFactory"/>.
+    /// The default implementation of <see cref="Entity"/>.
     /// </summary>
-    public sealed class EntityFactoryImpl : EntityFactory
+    public sealed class EntityImpl : Entity
     {
         /// <inheritdoc/>
         public Node Aacute { get; }
@@ -8506,9 +8506,5 @@ namespace Maroontress.Html.Impl
         /// <inheritdoc/>
         public Node zwnj { get; }
             = new CharacterReferenceImpl(nameof(zwnj));
-
-        /// <inheritdoc/>
-        public Node CharacterReference(int codePoint)
-            => new CharacterReferenceImpl(codePoint);
     }
 }
