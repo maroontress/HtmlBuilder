@@ -127,6 +127,20 @@ namespace Maroontress.Html.Test
             Assert.AreEqual(NodeKind.Text, nodeOf.Text("").Kind);
             Assert.AreEqual(NodeKind.EmptyTag, nodeOf.Br.Kind);
             Assert.AreEqual(NodeKind.Tag, nodeOf.P.Kind);
+            Assert.AreEqual(
+                NodeKind.CharacterReference,
+                nodeOf.Entity.amp.Kind);
+        }
+
+        [TestMethod]
+        public void CharacterReference()
+        {
+            var nodeOf = Nodes.NewFactory();
+            var span = nodeOf.Span.Add(
+                nodeOf.Entity.copy,
+                nodeOf.Text("2019"),
+                nodeOf.CharacterReference(0x1234));
+            Check(span, "<span>&copy;2019&#x1234;</span>");
         }
 
         private static void CommonAttributeTest<T>(T custom)

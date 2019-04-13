@@ -643,6 +643,14 @@ namespace Maroontress.Html
         /* others */
 
         /// <summary>
+        /// Gets an <c>Entity</c> object.
+        /// </summary>
+        /// <returns>
+        /// The <c>Entity</c> object.
+        /// </returns>
+        Entity Entity { get; }
+
+        /// <summary>
         /// Gets a new element that has the specified name.
         /// </summary>
         /// <param name="name">
@@ -677,5 +685,20 @@ namespace Maroontress.Html
         /// </returns>
         [return: DoNotIgnore]
         Node Text(string text);
+
+        /// <summary>
+        /// Gets a hexadecimal numeric character reference.
+        /// </summary>
+        /// <param name="codePoint">
+        /// Unicode code point.
+        /// </param>
+        /// <returns>
+        /// The node corresponding to the character reference in the form
+        /// "<c>&amp;#x</c>", that is followed by one or more ASCII hex digits
+        /// representing the specified code point, that is followed by
+        /// "<c>;</c>".
+        /// </returns>
+        [return: DoNotIgnore]
+        Node CharacterReference(int codePoint);
     }
 }

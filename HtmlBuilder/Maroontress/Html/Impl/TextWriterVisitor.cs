@@ -78,6 +78,14 @@ namespace Maroontress.Html.Impl
         }
 
         /// <inheritdoc/>
+        public void VisitEntity(string text)
+        {
+            Write("&");
+            Write(text);
+            Write(";");
+        }
+
+        /// <inheritdoc/>
         public void VisitTag(in TagStruct tag)
         {
             VisitEmptyTag(tag);
