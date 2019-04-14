@@ -82,12 +82,33 @@ The string `result` represents as follows:
 For example, <span class="reverse">low battery</span> and so on.</p>
 ```
 
-## Requirements for build
+### Named Character References
+
+To include Named Character References, use `Entity` property as follows:
+
+```csharp
+var nodeOf = Nodes.NewFactory();
+var span = nodeOf.Span.Add(
+    nodeOf.Text("Copyright "),
+    nodeOf.Entity.copy,
+    nodeOf.Text(" 2019"));
+var result = span.ToString();
+```
+
+The string `result` represents as follows:
+
+```html
+<span>Copyright &copy; 2019</span>
+```
+
+## How to build
+
+### Requirements to build
 
 - Visual Studio 2017 Version 15.9
-  or [.NET Core 2.2 SDK (SDK 2.2.105)][dotnet-core-sdk]
+  or [.NET Core 2.2 SDK (SDK 2.2.203)][dotnet-core-sdk]
 
-## How to get started
+### How to get started
 
 ```bash
 git clone URL
@@ -96,7 +117,7 @@ dotnet restore
 dotnet build
 ```
 
-## How to get test coverage report with Coverlet
+### How to get test coverage report with Coverlet
 
 ```bash
 dotnet test -p:CollectCoverage=true -p:CoverletOutputFormat=opencover \
@@ -105,4 +126,4 @@ sh coverage-report.sh
 ```
 
 [dotnet-core-sdk]:
-  https://dotnet.microsoft.com/download/thank-you/dotnet-sdk-2.2.105-windows-x64-installer
+  https://dotnet.microsoft.com/download/dotnet-core/2.2

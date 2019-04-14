@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: mcr.microsoft.com/dotnet/core/sdk:2.2.105
+      - image: mcr.microsoft.com/dotnet/core/sdk:2.2.203
     steps:
       - run: curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
       - run: apt-get install git-lfs
