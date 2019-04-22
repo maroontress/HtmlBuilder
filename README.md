@@ -1,7 +1,7 @@
 # HtmlBuilder
 
-HtmlBuilder is a .NET library for building HTML document,
-It depens on .NET Standard 2.0.
+HtmlBuilder is a .NET library for building HTML documents.
+It depends on .NET Standard 2.0.
 
 ## Examples
 
