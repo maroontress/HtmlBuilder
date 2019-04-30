@@ -9,9 +9,12 @@ jobs:
       - checkout
       - run: pwd
       - run: dotnet restore
+      - run: dotnet tool install -g BomSweeper.GlobalTool
+      - run: /root/.dotnet/tools/bomsweeper '**/*.cs' '**/*.csproj' '**/*.sln'
       - run: dotnet build
       - run: dotnet test -p:CollectCoverage=true -p:CoverletOutputFormat=opencover --no-build HtmlBuilder.Test
-      - run: sh coverage-report.sh
+      - run: dotnet tool install -g dotnet-reportgenerator-globaltool
+      - run: /root/.dotnet/tools/reportgenerator --reports:HtmlBuilder.Test/coverage.opencover.xml --targetdir:Coverlet-html
       - store_artifacts:
           path: /root/project/Coverlet-html
 workflows:

@@ -1,0 +1,28 @@
+trigger:
+  branches:
+    include:
+    - '*'
+
+pool:
+  vmImage: 'windows-2019'
+
+steps:
+- task: DotNetCoreInstaller@0
+  displayName: install .NET Core SDK
+  inputs:
+    packageType: sdk
+    version: 2.2.203
+- task: DotNetCoreCLI@2
+  displayName: dotnet build
+  inputs:
+    command: 'build'
+- task: DotNetCoreCLI@2
+  displayName: dotnet test
+  inputs:
+    command: 'test'
+    arguments: '-p:CollectCoverage=true /p:CoverletOutputFormat=cobertura --no-build HtmlBuilder.Test'
+- task: PublishCodeCoverageResults@1
+  displayName: publish coverage report
+  inputs:
+    codeCoverageTool: Cobertura
+    summaryFileLocation: 'HtmlBuilder.Test/coverage.cobertura.xml'
