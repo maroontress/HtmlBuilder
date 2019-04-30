@@ -1,6 +1,7 @@
 # HtmlBuilder
 
-HtmlBuilder is an HTML document builder.
+HtmlBuilder is a .NET library for building HTML document,
+It depens on .NET Standard 2.0.
 
 ## Examples
 
@@ -105,7 +106,7 @@ The string `result` represents as follows:
 
 ### Requirements to build
 
-- Visual Studio 2017 Version 15.9
+- Visual Studio 2019 Version 16.0
   or [.NET Core 2.2 SDK (SDK 2.2.203)][dotnet-core-sdk]
 
 ### How to get started
@@ -122,7 +123,9 @@ dotnet build
 ```bash
 dotnet test -p:CollectCoverage=true -p:CoverletOutputFormat=opencover \
         --no-build HtmlBuilder.Test
-sh coverage-report.sh
+dotnet ANYWHERE/reportgenerator.dll \
+        --reports:HtmlBuilder.Test/coverage.opencover.xml \
+        --targetdir:Coverlet-html
 ```
 
 [dotnet-core-sdk]:
