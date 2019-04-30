@@ -3,7 +3,8 @@ namespace Maroontress.Html
     using StyleChecker.Annotations;
 
     /// <summary>
-    /// The factory of the <see cref="Node"/> and <see cref="Tag"/> objects.
+    /// The factory of the <see cref="Node"/> and <see cref="Html.Tag"/>
+    /// objects.
     /// </summary>
     /// <remarks>
     /// See
