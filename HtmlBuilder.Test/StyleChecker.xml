@@ -9,4 +9,7 @@
     <files glob="**/*.csproj"/>
   </ByteOrderMark>
 
+  <NoDocumentation>
+    <ignore with="Microsoft.VisualStudio.TestTools.UnitTesting.TestClassAttribute" inclusive="true"/>
+  </NoDocumentation>
 </config>
