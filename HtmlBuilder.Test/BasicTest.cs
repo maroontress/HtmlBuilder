@@ -1,5 +1,3 @@
-#pragma warning disable CS1591
-
 namespace Maroontress.Html.Test
 {
     using System;

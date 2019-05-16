@@ -11,6 +11,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile>dcx\Maroontress.HtmlBuilder.Test.xml</DocumentationFile>
     <CodeAnalysisRuleSet>HtmlBuilder.Test.ruleset</CodeAnalysisRuleSet>
+    <NoWarn>1701;1702;1591</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
@@ -30,16 +31,19 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="coverlet.msbuild" Version="2.6.0">
+    <PackageReference Include="coverlet.msbuild" Version="2.6.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.0.1" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.1.0" />
     <PackageReference Include="MSTest.TestAdapter" Version="1.4.0" />
     <PackageReference Include="MSTest.TestFramework" Version="1.4.0" />
-    <PackageReference Include="ReportGenerator" Version="4.1.2" />
-    <PackageReference Include="StyleChecker" Version="1.0.22" PrivateAsssets="all" />
-    <PackageReference Include="StyleCop.Analyzers" Version="1.1.1-rc.114" PrivateAsssets="all" />
+    <PackageReference Include="ReportGenerator" Version="4.1.5" />
+    <PackageReference Include="StyleChecker" Version="1.0.23" PrivateAsssets="all" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" PrivateAsssets="all">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
