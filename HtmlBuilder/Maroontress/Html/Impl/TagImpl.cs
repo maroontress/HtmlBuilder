@@ -9,7 +9,7 @@ namespace Maroontress.Html.Impl
     /// The default implementation of <see cref="Tag"/>s other than void
     /// elements.
     /// </summary>
-    public sealed class TagImpl : AbstractNode, Tag
+    public sealed class TagImpl : BaseTagImpl<Tag>, Tag
     {
         private readonly TagStruct data;
 
@@ -39,7 +39,7 @@ namespace Maroontress.Html.Impl
         }
 
         /// <inheritdoc/>
-        public string Name => data.Name;
+        public override string Name => data.Name;
 
         /// <inheritdoc/>
         public Tag Add(IEnumerable<Node> children)
@@ -59,30 +59,24 @@ namespace Maroontress.Html.Impl
             => Add(new TextImpl(text));
 
         /// <inheritdoc/>
-        public Tag AddAttributes(
-            params (string name, string value)[] attributes)
-            => new TagImpl(
-                this,
-                Attributes.GetAddingModifier(
-                    data.Attributes.ContainsKey, attributes));
-
-        /// <inheritdoc/>
-        public Tag AddClass(params string[] values)
-            => new TagImpl(this, Attributes.GetAddingClassModifier(values));
-
-        /// <inheritdoc/>
-        public Tag WithClass(params string[] values)
-            => new TagImpl(this, Attributes.GetReplacingClassModifier(values));
-
-        /// <inheritdoc/>
-        public Tag WithId(string id)
-            => new TagImpl(this, Attributes.GetReplacingIdModifier(id));
-
-        /// <inheritdoc/>
         public override void Accept(NodeVisitor visitor)
             => visitor.VisitTag(in data);
 
         /// <inheritdoc/>
         protected override NodeKind GetKind() => NodeKind.Tag;
+
+        /// <inheritdoc/>
+        protected override Tag Create(Func<TagStruct, TagStruct> modify)
+        {
+            return new TagImpl(this, modify);
+        }
+
+        /// <inheritdoc/>
+        protected override Tag CreateAddingAttributes(
+            IEnumerable<(string name, string? value)> attributes)
+        {
+            return Create(Attributes.GetAddingModifier(
+                data.Attributes.ContainsKey, attributes));
+        }
     }
 }

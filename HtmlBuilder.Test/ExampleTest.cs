@@ -37,6 +37,20 @@ namespace Maroontress.Html.Test
         }
 
         [TestMethod]
+        public void EmptyAttribute()
+        {
+            var nodeOf = Nodes.NewFactory();
+            var div = nodeOf.Div
+                .Add(nodeOf.Input.AddEmptyAttributes("disabled"))
+                .Add(nodeOf.Button.AddAttributes(("disabled", null)));
+            var result = div.ToString();
+
+            Assert.AreEqual(
+                "<div><input disabled><button disabled></button></div>",
+                result);
+        }
+
+        [TestMethod]
         public void IdAndClass()
         {
             var nodeOf = Nodes.NewFactory();
