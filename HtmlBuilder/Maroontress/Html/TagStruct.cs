@@ -32,6 +32,6 @@ namespace Maroontress.Html
         /// <summary>
         /// Gets or sets the value of the <c>id</c> attribute.
         /// </summary>
-        public string Id { get; set; }
+        public string? Id { get; set; }
     }
 }
