@@ -260,6 +260,7 @@ paket-files/
 __pycache__/
 *.pyc
 
+HtmlBuilder/html/
 HtmlBuilder/dcx/
 HtmlBuilder.Test/dcx/
 HtmlBuilder.Test/coverage.opencover.xml

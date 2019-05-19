@@ -4,7 +4,8 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>Maroontress.HtmlBuilder</RootNamespace>
     <AssemblyName>Maroontress.HtmlBuilder</AssemblyName>
-    <LangVersion>7.3</LangVersion>
+    <LangVersion>8.0</LangVersion>
+    <NullableContextOptions>enable</NullableContextOptions>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -22,7 +23,6 @@
     <Version>1.0.2.0</Version>
     <RepositoryType />
     <Company>Maroontress Fast Software</Company>
-    <LangVersion>7.3</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
