@@ -1,11 +1,14 @@
 namespace Maroontress.Html.Impl
 {
     using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using StyleChecker.Annotations;
 
     /// <summary>
     /// The default implementation of empty <see cref="EmptyTag"/>s.
     /// </summary>
-    public sealed class EmptyTagImpl : AbstractNode, EmptyTag
+    public sealed class EmptyTagImpl : BaseTagImpl<EmptyTag>, EmptyTag
     {
         private readonly TagStruct data;
 
@@ -36,29 +39,7 @@ namespace Maroontress.Html.Impl
         }
 
         /// <inheritdoc/>
-        public string Name => data.Name;
-
-        /// <inheritdoc/>
-        public EmptyTag AddAttributes(
-            params (string name, string value)[] attributes)
-            => new EmptyTagImpl(
-                this,
-                Attributes.GetAddingModifier(
-                    data.Attributes.ContainsKey, attributes));
-
-        /// <inheritdoc/>
-        public EmptyTag AddClass(params string[] values)
-            => new EmptyTagImpl(
-                this, Attributes.GetAddingClassModifier(values));
-
-        /// <inheritdoc/>
-        public EmptyTag WithClass(params string[] values)
-            => new EmptyTagImpl(
-                this, Attributes.GetReplacingClassModifier(values));
-
-        /// <inheritdoc/>
-        public EmptyTag WithId(string id)
-            => new EmptyTagImpl(this, Attributes.GetReplacingIdModifier(id));
+        public override string Name => data.Name;
 
         /// <inheritdoc/>
         public override void Accept(NodeVisitor visitor)
@@ -66,5 +47,19 @@ namespace Maroontress.Html.Impl
 
         /// <inheritdoc/>
         protected override NodeKind GetKind() => NodeKind.EmptyTag;
+
+        /// <inheritdoc/>
+        protected override EmptyTag Create(Func<TagStruct, TagStruct> modify)
+        {
+            return new EmptyTagImpl(this, modify);
+        }
+
+        /// <inheritdoc/>
+        protected override EmptyTag CreateAddingAttributes(
+            IEnumerable<(string name, string? value)> attributes)
+        {
+            return Create(Attributes.GetAddingModifier(
+                data.Attributes.ContainsKey, attributes));
+        }
     }
 }

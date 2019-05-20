@@ -36,7 +36,7 @@ namespace Maroontress.Html.Impl
             {
                 Name = string.Intern(name.ToLowerInvariant()),
                 Children = ImmutableList<Node>.Empty,
-                Attributes = ImmutableDictionary<string, string>.Empty,
+                Attributes = ImmutableDictionary<string, AttributeData>.Empty,
                 Classes = ImmutableList<string>.Empty,
                 Id = null,
             };

@@ -80,6 +80,7 @@
     <Rule Id="SA1513" Action="None" />
     <Rule Id="SA1002" Action="None" />
     <Rule Id="SA1314" Action="None" />
+    <Rule Id="SA1600" Action="None" />
   </Rules>
   <Rules AnalyzerId="StyleChecker" RuleNamespace="StyleChecker">
     <Rule Id="EqualsNull" Action="Warning" />

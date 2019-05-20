@@ -1,3 +1,5 @@
+#pragma warning disable SA1118
+
 namespace Maroontress.Html.Test
 {
     using System;
@@ -76,6 +78,20 @@ namespace Maroontress.Html.Test
             Check(
                 custom.WithId("e"),
                 "<custom id=\"e\">");
+            Check(
+                custom.AddAttributes(("name1", null), ("name2", null)),
+                "<custom name1 name2>");
+            Check(
+                custom.AddEmptyAttributes("name1", "name2"),
+                "<custom name1 name2>");
+            Check(
+                custom.AddAttributes(
+                    ("name1", "1"),
+                    ("name2", null),
+                    ("name3", "3"),
+                    ("name4", null),
+                    ("name5", "5")),
+                "<custom name1=\"1\" name2 name3=\"3\" name4 name5=\"5\">");
             CommonAttributeTest(custom);
         }
 
@@ -107,6 +123,23 @@ namespace Maroontress.Html.Test
             Check(
                 custom.WithId("e"),
                 "<custom id=\"e\"></custom>");
+            Check(
+                custom.AddAttributes(("name1", null), ("name2", null)),
+                "<custom name1 name2></custom>");
+            Check(
+                custom.AddEmptyAttributes("name1", "name2"),
+                "<custom name1 name2></custom>");
+            Check(
+                custom
+                    .AddAttributes(
+                        ("name1", "1"),
+                        ("name2", null))
+                    .AddAttributes(
+                        ("name3", "3"),
+                        ("name4", null),
+                        ("name5", "5")),
+                "<custom name1=\"1\" name2 name3=\"3\" name4 name5=\"5\">"
+                + "</custom>");
             CommonAttributeTest(custom);
         }
 

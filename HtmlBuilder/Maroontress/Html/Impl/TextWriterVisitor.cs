@@ -1,5 +1,6 @@
 namespace Maroontress.Html.Impl
 {
+    using System;
     using System.Collections.Generic;
     using System.Collections.Immutable;
     using System.IO;
@@ -66,13 +67,29 @@ namespace Maroontress.Html.Impl
                 }
                 Write("\"");
             }
-            foreach (var pair in tag.Attributes)
+            var values = tag.Attributes
+                .Values
+                .ToArray();
+            Array.Sort(values, (e1, e2) => e1.Order.CompareTo(e2.Order));
+
+            void WriteAttributeData(AttributeData data)
             {
                 Write(" ");
-                Write(pair.Key);
+                Write(data.Name);
+
+                var v = data.Value;
+                if (v is null)
+                {
+                    return;
+                }
                 Write("=\"");
-                WriteAttribute(pair.Value);
+                WriteAttribute(v);
                 Write("\"");
+            }
+
+            foreach (var data in values)
+            {
+                WriteAttributeData(data);
             }
             Write(">");
         }

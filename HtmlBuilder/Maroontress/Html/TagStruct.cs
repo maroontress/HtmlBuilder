@@ -21,7 +21,7 @@ namespace Maroontress.Html
         /// Gets or sets the attributes of the tag (except <c>class</c> and
         /// <c>id</c> attribute).
         /// </summary>
-        public ImmutableDictionary<string, string> Attributes
+        public ImmutableDictionary<string, AttributeData> Attributes
         { get; set; }
 
         /// <summary>

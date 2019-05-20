@@ -31,6 +31,8 @@ var html = nodeOf.Html.Add(
 var result = html.ToString();
 ```
 
+### Attributes
+
 The HTML attributes also can be manipulated as follows:
 
 ```csharp
@@ -44,6 +46,26 @@ The string `result` represents as follows:
 
 ```html
 <pre lang="csharp">var list = new List&lt;string&gt;();</pre>
+```
+
+The empty attribute can be generated as follows:
+
+```csharp
+var nodeOf = Nodes.NewFactory();
+var div = nodeOf.Div
+    .Add(nodeOf.Input.AddEmptyAttributes("disabled"))
+    // Or, specify null to the value.
+    .Add(nodeOf.Button.AddAttributes(("disabled", null)));
+var result = div.ToString();
+```
+
+The string `result` represents as follows:
+
+```html
+<div>
+  <input disabled>
+  <button disabled></button>
+</div>
 ```
 
 Note that the `id` and `class` attributes are treated specially as follows:
@@ -111,7 +133,7 @@ The string `result` represents as follows:
 
 ### How to get started
 
-```bash
+```plaintext
 git clone URL
 cd HtmlBuilder
 dotnet restore
@@ -120,7 +142,7 @@ dotnet build
 
 ### How to get test coverage report with Coverlet
 
-```bash
+```plaintext
 dotnet test -p:CollectCoverage=true -p:CoverletOutputFormat=opencover \
         --no-build HtmlBuilder.Test
 dotnet ANYWHERE/reportgenerator.dll \

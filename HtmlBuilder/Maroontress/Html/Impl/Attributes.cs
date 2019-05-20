@@ -131,13 +131,14 @@ namespace Maroontress.Html.Impl
         /// </returns>
         public static Func<TagStruct, TagStruct> GetAddingModifier(
             Func<string, bool> isDuplicated,
-            IEnumerable<(string name, string value)> attributes)
+            IEnumerable<(string name, string? value)> attributes)
         {
-            string ToName(string s)
+            static string ToName(string s)
                 => string.Intern(s.ToLowerInvariant());
 
-            KeyValuePair<string, string> ToPair(string n, string v)
-                => new KeyValuePair<string, string>(ToName(n), v);
+            static KeyValuePair<string, AttributeData>
+                ToPair(string n, AttributeData v)
+                    => new KeyValuePair<string, AttributeData>(n, v);
 
             var invalid = attributes.Select(a => a.name)
                 .FirstOrDefault(n => !IsValid(n));
@@ -146,8 +147,10 @@ namespace Maroontress.Html.Impl
                 throw new ArgumentException(
                     $"'{invalid}' is not valid for the attribute name");
             }
-            var delta = attributes.Select(a => ToPair(a.name, a.value));
-            var keys = delta.Select(p => p.Key);
+            var delta = attributes
+                .Select(a => (name: ToName(a.name), a.value))
+                .ToArray();
+            var keys = delta.Select(a => a.name);
             var specialName = keys.FirstOrDefault(SpecialNameSet.Contains);
             if (!(specialName is null))
             {
@@ -171,8 +174,16 @@ namespace Maroontress.Html.Impl
             }
             return d =>
             {
-                d.Attributes = d.Attributes.Concat(delta)
-                    .ToImmutableDictionary(a => a.Key, a => a.Value);
+                var count = d.Attributes.Count;
+                var n = delta.Length;
+                var list = new List<KeyValuePair<string, AttributeData>>(n);
+                for (var k = 0; k < n; ++k)
+                {
+                    var a = delta[k];
+                    var v = new AttributeDataImpl(count + k, a);
+                    list.Add(ToPair(a.name, v));
+                }
+                d.Attributes = d.Attributes.AddRange(list);
                 return d;
             };
         }
