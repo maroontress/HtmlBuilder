@@ -105,6 +105,24 @@ The string `result` represents as follows:
 For example, <span class="reverse">low battery</span> and so on.</p>
 ```
 
+### Character References
+
+To include Character References, use `CharacterReference` method
+as follows:
+
+```csharp
+var nodeOf = Nodes.NewFactory();
+var span = nodeOf.Span.Add(
+    nodeOf.CharacterReference(0x1f5fc));
+var result = span.ToString();
+```
+
+The string `result` represents as follows:
+
+```html
+<span>&#x1F5FC;</span>
+```
+
 ### Named Character References
 
 To include Named Character References, use `Entity` property as follows:
@@ -123,6 +141,10 @@ The string `result` represents as follows:
 ```html
 <span>Copyright &copy; 2019</span>
 ```
+
+## API Reference
+
+- [Maroontress.Html](https://maroontress.github.io/HtmlBuilder/api/latest/html/Maroontress.Html.html) namespace
 
 ## How to build
 

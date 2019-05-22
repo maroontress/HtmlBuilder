@@ -82,5 +82,33 @@ namespace Maroontress.Html.Test
                 + "battery</span> and so on.</p>",
                 result);
         }
+
+        [TestMethod]
+        public void CharacterReference()
+        {
+            var nodeOf = Nodes.NewFactory();
+            var span = nodeOf.Span.Add(
+                nodeOf.CharacterReference(0x1f5fc));
+            var result = span.ToString();
+
+            Assert.AreEqual(
+                "<span>&#x1F5FC;</span>",
+                result);
+        }
+
+        [TestMethod]
+        public void NamedCharacterReference()
+        {
+            var nodeOf = Nodes.NewFactory();
+            var span = nodeOf.Span.Add(
+                nodeOf.Text("Copyright "),
+                nodeOf.Entity.copy,
+                nodeOf.Text(" 2019"));
+            var result = span.ToString();
+
+            Assert.AreEqual(
+                "<span>Copyright &copy; 2019</span>",
+                result);
+        }
     }
 }
