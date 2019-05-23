@@ -86,6 +86,11 @@ namespace Maroontress.Html.Test
                 "<custom name1 name2>");
             Check(
                 custom.AddAttributes(
+                    ("UPPER1", "LOWER1"),
+                    ("UPPER2", null)),
+                "<custom upper1=\"LOWER1\" upper2>");
+            Check(
+                custom.AddAttributes(
                     ("name1", "1"),
                     ("name2", null),
                     ("name3", "3"),
@@ -129,6 +134,11 @@ namespace Maroontress.Html.Test
             Check(
                 custom.AddEmptyAttributes("name1", "name2"),
                 "<custom name1 name2></custom>");
+            Check(
+                custom.AddAttributes(
+                    ("UPPER1", "LOWER1"),
+                    ("UPPER2", null)),
+                "<custom upper1=\"LOWER1\" upper2></custom>");
             Check(
                 custom
                     .AddAttributes(

@@ -67,17 +67,13 @@ namespace Maroontress.Html.Impl
                 }
                 Write("\"");
             }
-            var values = tag.Attributes
-                .Values
-                .ToArray();
-            Array.Sort(values, (e1, e2) => e1.Order.CompareTo(e2.Order));
 
-            void WriteAttributeData(AttributeData data)
+            void WriteAttributePair(KeyValuePair<string, string?> pair)
             {
                 Write(" ");
-                Write(data.Name);
+                Write(pair.Key);
 
-                var v = data.Value;
+                var v = pair.Value;
                 if (v is null)
                 {
                     return;
@@ -87,9 +83,9 @@ namespace Maroontress.Html.Impl
                 Write("\"");
             }
 
-            foreach (var data in values)
+            foreach (var pair in tag.Attributes)
             {
-                WriteAttributeData(data);
+                WriteAttributePair(pair);
             }
             Write(">");
         }

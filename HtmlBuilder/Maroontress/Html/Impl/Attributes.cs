@@ -136,9 +136,9 @@ namespace Maroontress.Html.Impl
             static string ToName(string s)
                 => string.Intern(s.ToLowerInvariant());
 
-            static KeyValuePair<string, AttributeData>
-                ToPair(string n, AttributeData v)
-                    => new KeyValuePair<string, AttributeData>(n, v);
+            static KeyValuePair<string, string?>
+                    ToPair((string name, string? value) p)
+                => new KeyValuePair<string, string?>(ToName(p.name), p.value);
 
             var invalid = attributes.Select(a => a.name)
                 .FirstOrDefault(n => !IsValid(n));
@@ -147,10 +147,8 @@ namespace Maroontress.Html.Impl
                 throw new ArgumentException(
                     $"'{invalid}' is not valid for the attribute name");
             }
-            var delta = attributes
-                .Select(a => (name: ToName(a.name), a.value))
-                .ToArray();
-            var keys = delta.Select(a => a.name);
+            var delta = attributes.Select(ToPair);
+            var keys = delta.Select(p => p.Key);
             var specialName = keys.FirstOrDefault(SpecialNameSet.Contains);
             if (!(specialName is null))
             {
@@ -174,16 +172,7 @@ namespace Maroontress.Html.Impl
             }
             return d =>
             {
-                var count = d.Attributes.Count;
-                var n = delta.Length;
-                var list = new List<KeyValuePair<string, AttributeData>>(n);
-                for (var k = 0; k < n; ++k)
-                {
-                    var a = delta[k];
-                    var v = new AttributeDataImpl(count + k, a);
-                    list.Add(ToPair(a.name, v));
-                }
-                d.Attributes = d.Attributes.AddRange(list);
+                d.Attributes = d.Attributes.AddRange(delta);
                 return d;
             };
         }
