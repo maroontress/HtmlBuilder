@@ -11,7 +11,15 @@ steps:
   displayName: install .NET Core SDK
   inputs:
     packageType: sdk
-    version: 2.2.203
+    version: 2.2.300
+- task: CmdLine@2
+  inputs:
+    script: dotnet tool install -g BomSweeper.GlobalTool
+    displayName: install BomSweeper.GlobalTool
+- task: CmdLine@2
+  inputs:
+    script: bomsweeper '**/*.cs' '**/*.csproj' '**/*.sln'
+    displayName: BOM check
 - task: DotNetCoreCLI@2
   displayName: dotnet build
   inputs:
