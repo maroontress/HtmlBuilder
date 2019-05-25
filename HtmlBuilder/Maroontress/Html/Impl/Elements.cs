@@ -6,6 +6,7 @@ namespace Maroontress.Html.Impl
     using System;
     using System.Collections.Generic;
     using System.Collections.Immutable;
+    using Maroontress.Util;
 
     /// <summary>
     /// Provides the utilities for the HTML elements.
@@ -36,7 +37,7 @@ namespace Maroontress.Html.Impl
             {
                 Name = string.Intern(name.ToLowerInvariant()),
                 Children = ImmutableList<Node>.Empty,
-                Attributes = ImmutableDictionary<string, AttributeData>.Empty,
+                Attributes = ImmutableLinkedHashMap<string, string?>.Empty,
                 Classes = ImmutableList<string>.Empty,
                 Id = null,
             };
