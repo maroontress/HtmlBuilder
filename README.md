@@ -33,7 +33,7 @@ var result = html.ToString();
 
 ### Attributes
 
-The HTML attributes also can be manipulated as follows:
+The HTML attributes can be manipulated as follows:
 
 ```csharp
 var nodeOf = Nodes.NewFactory();
