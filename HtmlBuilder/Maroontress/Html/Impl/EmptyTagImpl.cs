@@ -2,8 +2,6 @@ namespace Maroontress.Html.Impl
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using StyleChecker.Annotations;
 
     /// <summary>
     /// The default implementation of empty <see cref="EmptyTag"/>s.
