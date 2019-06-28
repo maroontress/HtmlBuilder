@@ -5,6 +5,8 @@ It depends on .NET Standard 2.0.
 
 ## Examples
 
+### Elements
+
 Generate the HTML document with HtmlBuilder as follows:
 
 ```html
@@ -31,9 +33,11 @@ var html = nodeOf.Html.Add(
 var result = html.ToString();
 ```
 
+> [See the result in .NET Fiddle](https://dotnetfiddle.net/YpuE8T)
+
 ### Attributes
 
-The HTML attributes also can be manipulated as follows:
+The HTML attributes can be manipulated as follows:
 
 ```csharp
 var nodeOf = Nodes.NewFactory();
@@ -47,6 +51,9 @@ The string `result` represents as follows:
 ```html
 <pre lang="csharp">var list = new List&lt;string&gt;();</pre>
 ```
+
+> [See the result in .NET Fiddle](https://dotnetfiddle.net/kScW7Y)
+
 
 The empty attribute can be generated as follows:
 
@@ -68,6 +75,8 @@ The string `result` represents as follows:
 </div>
 ```
 
+> [See the result in .NET Fiddle](https://dotnetfiddle.net/mi6kIW)
+
 Note that the `id` and `class` attributes are treated specially as follows:
 
 ```csharp
@@ -83,6 +92,8 @@ The string `result` represents as follows:
 ```html
 <h1 id="intro" class="title anchor">Introduction</h1>
 ```
+
+> [See the result in .NET Fiddle](https://dotnetfiddle.net/KT5GJZ)
 
 `Node` objects are immutable so that the Prototype pattern can be applied
 as follows:
@@ -105,6 +116,8 @@ The string `result` represents as follows:
 For example, <span class="reverse">low battery</span> and so on.</p>
 ```
 
+> [See the result in .NET Fiddle](https://dotnetfiddle.net/W3D7AG)
+
 ### Character References
 
 To include Character References, use `CharacterReference` method
@@ -122,6 +135,8 @@ The string `result` represents as follows:
 ```html
 <span>&#x1F5FC;</span>
 ```
+
+> [See the result in .NET Fiddle](https://dotnetfiddle.net/QF0Jjk)
 
 ### Named Character References
 
@@ -141,6 +156,8 @@ The string `result` represents as follows:
 ```html
 <span>Copyright &copy; 2019</span>
 ```
+
+> [See the result in .NET Fiddle](https://dotnetfiddle.net/AJFEnI)
 
 ## API Reference
 
