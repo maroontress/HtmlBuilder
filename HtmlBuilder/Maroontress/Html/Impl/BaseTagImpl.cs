@@ -3,7 +3,6 @@ namespace Maroontress.Html.Impl
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using StyleChecker.Annotations;
 
     /// <summary>
     /// Abstraction of Tag and EmptyTag.
