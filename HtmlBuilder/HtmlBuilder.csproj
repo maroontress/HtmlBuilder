@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <RootNamespace>Maroontress.HtmlBuilder</RootNamespace>
     <AssemblyName>Maroontress.HtmlBuilder</AssemblyName>
     <LangVersion>8.0</LangVersion>
@@ -15,7 +15,7 @@
     <PackageProjectUrl>https://maroontress.github.io/HtmlBuilder/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/maroontress/HtmlBuilder</RepositoryUrl>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <Description>HtmlBuilder is an HTML document builder.</Description>
+    <Description>HtmlBuilder is a .NET library for building HTML documents. It depends on .NET Standard 2.1.</Description>
     <PackageReleaseNotes>See https://maroontress.github.io/HtmlBuilder/releasenotes.html</PackageReleaseNotes>
     <Copyright>Copyright (c) 2019 Maroontress Fast Software</Copyright>
     <PackageTags>HTML</PackageTags>

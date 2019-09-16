@@ -17,7 +17,16 @@ namespace Maroontress.Html.Impl
         public override sealed string ToString()
         {
             var writer = new StringWriter();
-            Accept(new TextWriterVisitor(writer));
+            Accept(new DefaultTextWriterVisitor(writer));
+            writer.Close();
+            return writer.ToString();
+        }
+
+        /// <inheritdoc/>
+        public string ToString(FormatOptions options)
+        {
+            var writer = new StringWriter();
+            Accept(new IndentTextWriterVisitor(writer, options));
             writer.Close();
             return writer.ToString();
         }
