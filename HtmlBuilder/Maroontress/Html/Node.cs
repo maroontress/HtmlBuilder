@@ -23,5 +23,17 @@ namespace Maroontress.Html
         /// </param>
         /// <seealso cref="NodeVisitor"/>
         void Accept(NodeVisitor visitor);
+
+        /// <summary>
+        /// Returns the string representing the current object, formatting it
+        /// with the spcified <see cref="FormatOptions"/>.
+        /// </summary>
+        /// <param name="options">
+        /// The format options.
+        /// </param>
+        /// <returns>
+        /// The string representing the current object.
+        /// </returns>
+        string ToString(FormatOptions options);
     }
 }

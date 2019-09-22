@@ -276,7 +276,12 @@ namespace Maroontress.Util.Test
             var pairs = new List<KeyValuePair<string, string>>();
             while (e.MoveNext())
             {
-                pairs.Add((KeyValuePair<string, string>)e.Current);
+                var i = e.Current;
+                if (i is null)
+                {
+                    continue;
+                }
+                pairs.Add((KeyValuePair<string, string>)i);
             }
             Assert.AreEqual(3, pairs.Count);
             CheckFooBarBaz(pairs.Select(p => p.Key));

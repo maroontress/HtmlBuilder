@@ -1,5 +1,5 @@
 version: '{build}'
-image: Visual Studio 2019 Preview
+image: Ubuntu1804
 configuration: Debug
 platform: Any CPU
 init:
@@ -8,3 +8,4 @@ before_build:
 - cmd: nuget restore
 build:
   verbosity: minimal
+  project: HtmlBuilder.sln

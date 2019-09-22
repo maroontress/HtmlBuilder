@@ -10,22 +10,9 @@ namespace Maroontress.Html.Test
     public sealed class BasicTest
     {
         [TestMethod]
-        public void BasicExample()
+        public void ToStringWithoutFormat()
         {
-            var nodeOf = Nodes.NewFactory();
-            var html = nodeOf.Html.Add(
-                nodeOf.Head.Add(
-                    nodeOf.Title.Add("Title")),
-                nodeOf.Body.Add(
-                    nodeOf.P.WithClass("a", "b")
-                        .Add("It works!"),
-                    nodeOf.P.WithId("c").Add(
-                        nodeOf.Text("Hello"),
-                        nodeOf.Wbr,
-                        nodeOf.Text("World")),
-                    nodeOf.Img.AddAttributes(("src", "d.png"))));
-
-            var result = html.ToString();
+            var html = GetExample();
 
             Assert.AreEqual(
                 "<html>"
@@ -34,7 +21,72 @@ namespace Maroontress.Html.Test
                 + "<p id=\"c\">Hello<wbr>World</p>"
                 + "<img src=\"d.png\"></body>"
                 + "</html>",
-                result);
+                html.ToString());
+        }
+
+        [TestMethod]
+        public void ToStringWithFormat()
+        {
+            var html = GetExample();
+            var result = html.ToString(new FormatOptions());
+            var lines = new[]
+            {
+                "<html>",
+                "  <head>",
+                "    <title>Title</title>",
+                "  </head>",
+                "  <body>",
+                "    <p class=\"a b\">It works!</p>",
+                "    <p id=\"c\">Hello<wbr>World</p>",
+                "    <img src=\"d.png\">",
+                "  </body>",
+                "</html>",
+                "",
+            };
+            var expected = string.Join(Environment.NewLine, lines);
+
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        public void TextIndent()
+        {
+            var nodeOf = Nodes.NewFactory();
+            var html = nodeOf.Html.Add(
+                nodeOf.Body.Add(
+                    nodeOf.Text("abc"),
+                    nodeOf.U.Add("def"),
+                    nodeOf.Text("ghi"),
+                    nodeOf.P.Add(
+                        nodeOf.Text("abc"),
+                        nodeOf.U.Add("def"),
+                        nodeOf.Text("ghi")),
+                    nodeOf.Div.Add(
+                        nodeOf.P.Add(
+                            nodeOf.Text("abc"),
+                            nodeOf.U.Add("def"),
+                            nodeOf.Text("ghi"))),
+                    nodeOf.B.Add("abc"),
+                    nodeOf.U.Add("def"),
+                    nodeOf.Text("ghi")));
+            var result = html.ToString(new FormatOptions());
+            var lines = new[]
+            {
+                "<html>",
+                "  <body>",
+                "    abc<u>def</u>ghi",
+                "    <p>abc<u>def</u>ghi</p>",
+                "    <div>",
+                "      <p>abc<u>def</u>ghi</p>",
+                "    </div>",
+                "    <b>abc</b><u>def</u>ghi",
+                "  </body>",
+                "</html>",
+                "",
+            };
+            var expected = string.Join(Environment.NewLine, lines);
+
+            Assert.AreEqual(expected, result);
         }
 
         [TestMethod]
@@ -215,6 +267,22 @@ namespace Maroontress.Html.Test
         private static void Check(Node node, string expected)
         {
             Assert.AreEqual(expected, node.ToString());
+        }
+
+        private static Node GetExample()
+        {
+            var nodeOf = Nodes.NewFactory();
+            return nodeOf.Html.Add(
+                nodeOf.Head.Add(
+                    nodeOf.Title.Add("Title")),
+                nodeOf.Body.Add(
+                    nodeOf.P.WithClass("a", "b")
+                        .Add("It works!"),
+                    nodeOf.P.WithId("c").Add(
+                        nodeOf.Text("Hello"),
+                        nodeOf.Wbr,
+                        nodeOf.Text("World")),
+                    nodeOf.Img.AddAttributes(("src", "d.png"))));
         }
     }
 }

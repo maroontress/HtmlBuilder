@@ -1,7 +1,7 @@
 # HtmlBuilder
 
 HtmlBuilder is a .NET library for building HTML documents.
-It depends on .NET Standard 2.0.
+It depends on .NET Standard 2.1.
 
 ## Examples
 
@@ -167,8 +167,8 @@ The string `result` represents as follows:
 
 ### Requirements to build
 
-- Visual Studio 2019 Version 16.0
-  or [.NET Core 2.2 SDK (SDK 2.2.203)][dotnet-core-sdk]
+- Visual Studio 2019 Version 16.3
+  or [.NET Core 3.0 SDK (SDK 3.0)][dotnet-core-sdk]
 
 ### How to get started
 
