@@ -128,13 +128,14 @@ namespace Maroontress.Html.Impl
                 WriteStartTag(tag);
                 return;
             }
+            if (phraseNest > 0)
+            {
+                WriteStartTag(tag);
+                return;
+            }
             WriteIndent();
             indent += indentWidth;
             WriteStartTag(tag);
-            if (phraseNest > 0)
-            {
-                return;
-            }
             ForceLineFeed();
         }
 
@@ -149,12 +150,17 @@ namespace Maroontress.Html.Impl
             }
             if (ChildrenArePhrasingSet.Contains(name))
             {
-                if (phraseNest > 0)
-                {
-                    --phraseNest;
-                }
                 WriteEndTag(tag);
-                ForceLineFeed();
+                --phraseNest;
+                if (phraseNest == 0)
+                {
+                    ForceLineFeed();
+                }
+                return;
+            }
+            if (phraseNest > 0)
+            {
+                WriteEndTag(tag);
                 return;
             }
             indent -= indentWidth;
