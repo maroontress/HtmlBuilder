@@ -10,7 +10,7 @@ namespace Maroontress.Html.Test
     public sealed class BasicTest
     {
         [TestMethod]
-        public void ToStringWithoutFormat()
+        public void ToStringWithoutFormatOptions()
         {
             var html = GetExample();
 
@@ -25,10 +25,8 @@ namespace Maroontress.Html.Test
         }
 
         [TestMethod]
-        public void ToStringWithFormat()
+        public void ToStringWithFormatOptions()
         {
-            var html = GetExample();
-            var result = html.ToString(new FormatOptions());
             var lines = new[]
             {
                 "<html>",
@@ -45,48 +43,14 @@ namespace Maroontress.Html.Test
             };
             var expected = string.Join(Environment.NewLine, lines);
 
-            Assert.AreEqual(expected, result);
-        }
+            var html = GetExample();
+            var defaultIndentResult
+                = html.ToString(FormatOptions.DefaultIndent);
+            var defaultConstructorResult
+                = html.ToString(new FormatOptions());
 
-        [TestMethod]
-        public void TextIndent()
-        {
-            var nodeOf = Nodes.NewFactory();
-            var html = nodeOf.Html.Add(
-                nodeOf.Body.Add(
-                    nodeOf.Text("abc"),
-                    nodeOf.U.Add("def"),
-                    nodeOf.Text("ghi"),
-                    nodeOf.P.Add(
-                        nodeOf.Text("abc"),
-                        nodeOf.U.Add("def"),
-                        nodeOf.Text("ghi")),
-                    nodeOf.Div.Add(
-                        nodeOf.P.Add(
-                            nodeOf.Text("abc"),
-                            nodeOf.U.Add("def"),
-                            nodeOf.Text("ghi"))),
-                    nodeOf.B.Add("abc"),
-                    nodeOf.U.Add("def"),
-                    nodeOf.Text("ghi")));
-            var result = html.ToString(new FormatOptions());
-            var lines = new[]
-            {
-                "<html>",
-                "  <body>",
-                "    abc<u>def</u>ghi",
-                "    <p>abc<u>def</u>ghi</p>",
-                "    <div>",
-                "      <p>abc<u>def</u>ghi</p>",
-                "    </div>",
-                "    <b>abc</b><u>def</u>ghi",
-                "  </body>",
-                "</html>",
-                "",
-            };
-            var expected = string.Join(Environment.NewLine, lines);
-
-            Assert.AreEqual(expected, result);
+            Assert.AreEqual(expected, defaultIndentResult);
+            Assert.AreEqual(expected, defaultConstructorResult);
         }
 
         [TestMethod]

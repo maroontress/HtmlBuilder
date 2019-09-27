@@ -16,7 +16,7 @@ steps:
   displayName: install .NET Core SDK 3.0
   inputs:
     packageType: sdk
-    version: 3.0.100-rc1-014190
+    version: 3.0.100
 - task: CmdLine@2
   inputs:
     script: dotnet tool install -g BomSweeper.GlobalTool
