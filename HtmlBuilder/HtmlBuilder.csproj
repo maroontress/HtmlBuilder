@@ -20,7 +20,7 @@
     <Copyright>Copyright (c) 2019 Maroontress Fast Software</Copyright>
     <PackageTags>HTML</PackageTags>
     <NoPackageAnalysis>true</NoPackageAnalysis>
-    <Version>1.0.3.0</Version>
+    <Version>1.0.4.0</Version>
     <RepositoryType />
     <Company>Maroontress Fast Software</Company>
   </PropertyGroup>
@@ -53,8 +53,8 @@
   <ItemGroup>
     <PackageReference Include="StyleChecker" Version="1.0.24" PrivateAssets="all" />
     <PackageReference Include="StyleChecker.Annotations" Version="1.0.1" />
-    <PackageReference Include="System.Collections.Immutable" Version="1.5.0" />
-    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" PrivateAssets="all" />
+    <PackageReference Include="System.Collections.Immutable" Version="1.6.0" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.66" PrivateAssets="all" />
   </ItemGroup>
 
   <ItemGroup>
