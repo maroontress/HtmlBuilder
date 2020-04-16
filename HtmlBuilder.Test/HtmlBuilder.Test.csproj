@@ -1,17 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <IsPackable>false</IsPackable>
     <AssemblyName>Maroontress.HtmlBuilder.Test</AssemblyName>
     <RootNamespace>Maroontress.HtmlBuilder.Test</RootNamespace>
     <LangVersion>8.0</LangVersion>
     <Nullable>enable</Nullable>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile>dcx\Maroontress.HtmlBuilder.Test.xml</DocumentationFile>
-    <CodeAnalysisRuleSet>HtmlBuilder.Test.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
 
   <ItemGroup>
@@ -31,16 +27,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="coverlet.msbuild" Version="2.7.0">
+    <PackageReference Include="coverlet.msbuild" Version="2.9.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.3.0" />
-    <PackageReference Include="MSTest.TestAdapter" Version="2.0.0" />
-    <PackageReference Include="MSTest.TestFramework" Version="2.0.0" />
-    <PackageReference Include="ReportGenerator" Version="4.2.20" />
-    <PackageReference Include="StyleChecker" Version="1.0.24" PrivateAsssets="all" />
-    <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.66" PrivateAsssets="all">
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.6.1" />
+    <PackageReference Include="MSTest.TestAdapter" Version="2.1.1" />
+    <PackageReference Include="MSTest.TestFramework" Version="2.1.1" />
+    <PackageReference Include="ReportGenerator" Version="4.6.1" />
+    <PackageReference Include="StyleChecker" Version="1.0.25" PrivateAsssets="all" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.164" PrivateAsssets="all">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>

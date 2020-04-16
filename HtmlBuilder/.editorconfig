@@ -1,0 +1,16 @@
+﻿[*.cs]
+
+# SA1101: Prefix local calls with this
+dotnet_diagnostic.SA1101.severity = none
+
+# SA1302: Interface names should begin with I
+dotnet_diagnostic.SA1302.severity = none
+
+# SA1314: Type parameter names should begin with T
+dotnet_diagnostic.SA1314.severity = none
+
+# SA1513: Closing brace should be followed by blank line
+dotnet_diagnostic.SA1513.severity = none
+
+# SA1633: File should have header
+dotnet_diagnostic.SA1633.severity = none

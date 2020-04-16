@@ -1,0 +1,22 @@
+﻿[*.cs]
+
+# SA1633: File should have header
+dotnet_diagnostic.SA1633.severity = none
+
+# SA1600: Elements should be documented
+dotnet_diagnostic.SA1600.severity = none
+
+# SA1513: Closing brace should be followed by blank line
+dotnet_diagnostic.SA1513.severity = none
+
+# SA1101: Prefix local calls with this
+dotnet_diagnostic.SA1101.severity = none
+
+# IsNull: Do not use 'is' pattern matching with 'null'.
+dotnet_diagnostic.IsNull.severity = none
+
+# CS1591: Missing XML comment for publicly visible type or member
+dotnet_diagnostic.CS1591.severity = none
+
+# SA1122: Use string.Empty for empty strings
+dotnet_diagnostic.SA1122.severity = none

@@ -43,14 +43,14 @@ namespace Maroontress.Util.Test
         [TestMethod]
         public void AddRange()
         {
-            var pairs = new (string key, string value)[]
+            var pairs = new (string Key, string Value)[]
             {
                 ("foo", "1"),
                 ("bar", "2"),
                 ("baz", "3"),
             };
             var map = ImmutableLinkedHashMap<string, string>.Empty
-                .AddRange(pairs.Select(p => ToPair(p.key, p.value)));
+                .AddRange(pairs.Select(p => ToPair(p.Key, p.Value)));
             Assert.AreEqual("2", map["bar"]);
         }
 
@@ -200,13 +200,13 @@ namespace Maroontress.Util.Test
         [TestMethod]
         public void SetItemsWithAllNew()
         {
-            var pairs = new (string key, string value)[]
+            var pairs = new (string Key, string Value)[]
             {
                 ("qux", "4"),
                 ("quux", "5"),
             };
             var map = FooBarBaz().SetItems(
-                pairs.Select(p => ToPair(p.key, p.value)));
+                pairs.Select(p => ToPair(p.Key, p.Value)));
 
             Assert.AreEqual(5, map.Count);
             Assert.IsTrue(map.Contains(ToPair("foo", "1")));
@@ -226,14 +226,14 @@ namespace Maroontress.Util.Test
         [TestMethod]
         public void SetItems()
         {
-            var pairs = new (string key, string value)[]
+            var pairs = new (string Key, string Value)[]
             {
                 ("qux", "4"),
                 ("bar", "2"),
                 ("foo", "5"),
             };
             var map = FooBarBaz().SetItems(
-                pairs.Select(p => ToPair(p.key, p.value)));
+                pairs.Select(p => ToPair(p.Key, p.Value)));
 
             Assert.AreEqual(4, map.Count);
             Assert.IsTrue(map.Contains(ToPair("foo", "5")));
