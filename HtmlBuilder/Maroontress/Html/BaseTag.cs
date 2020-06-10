@@ -69,7 +69,7 @@ namespace Maroontress.Html
         /// The new <see cref="BaseTag{T}"/> object.
         /// </returns>
         [return: DoNotIgnore]
-        T AddAttributes(params (string name, string? value)[] attributes);
+        T AddAttributes(params (string Name, string? Value)[] attributes);
 
         /// <summary>
         /// Gets a new <see cref="BaseTag{T}"/> object with the specified empty

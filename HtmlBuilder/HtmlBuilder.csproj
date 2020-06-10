@@ -6,6 +6,7 @@
     <AssemblyName>Maroontress.HtmlBuilder</AssemblyName>
     <LangVersion>8.0</LangVersion>
     <Nullable>enable</Nullable>
+    <DocumentationFile>dcx\Maroontress.HtmlBuilder.xml</DocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -25,14 +26,6 @@
     <Company>Maroontress Fast Software</Company>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <CodeAnalysisRuleSet>HtmlBuilder.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <CodeAnalysisRuleSet>HtmlBuilder.ruleset</CodeAnalysisRuleSet>
-    <DocumentationFile>dcx\Maroontress.HtmlBuilder.xml</DocumentationFile>
-  </PropertyGroup>
 
   <ItemGroup>
     <Compile Remove="dcx\**" />
@@ -51,10 +44,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="StyleChecker" Version="1.0.24" PrivateAssets="all" />
+    <PackageReference Include="StyleChecker" Version="1.0.25" PrivateAssets="all" />
     <PackageReference Include="StyleChecker.Annotations" Version="1.0.1" />
-    <PackageReference Include="System.Collections.Immutable" Version="1.6.0" />
-    <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.66" PrivateAssets="all" />
+    <PackageReference Include="System.Collections.Immutable" Version="1.7.1" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.164" PrivateAssets="all" />
   </ItemGroup>
 
   <ItemGroup>

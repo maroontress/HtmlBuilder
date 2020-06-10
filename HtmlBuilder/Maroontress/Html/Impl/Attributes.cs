@@ -131,16 +131,16 @@ namespace Maroontress.Html.Impl
         /// </returns>
         public static Func<TagStruct, TagStruct> GetAddingModifier(
             Func<string, bool> isDuplicated,
-            IEnumerable<(string name, string? value)> attributes)
+            IEnumerable<(string Name, string? Value)> attributes)
         {
             static string ToName(string s)
                 => string.Intern(s.ToLowerInvariant());
 
             static KeyValuePair<string, string?>
-                    ToPair((string name, string? value) p)
-                => new KeyValuePair<string, string?>(ToName(p.name), p.value);
+                    ToPair((string Name, string? Value) p)
+                => new KeyValuePair<string, string?>(ToName(p.Name), p.Value);
 
-            var invalid = attributes.Select(a => a.name)
+            var invalid = attributes.Select(a => a.Name)
                 .FirstOrDefault(n => !IsValid(n));
             if (!(invalid is null))
             {

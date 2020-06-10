@@ -73,7 +73,7 @@ namespace Maroontress.Html.Impl
 
         /// <inheritdoc/>
         protected override Tag CreateAddingAttributes(
-            IEnumerable<(string name, string? value)> attributes)
+            IEnumerable<(string Name, string? Value)> attributes)
         {
             return Create(Attributes.GetAddingModifier(
                 data.Attributes.ContainsKey, attributes));

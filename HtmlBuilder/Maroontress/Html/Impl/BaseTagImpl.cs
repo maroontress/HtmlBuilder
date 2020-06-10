@@ -18,7 +18,7 @@ namespace Maroontress.Html.Impl
 
         /// <inheritdoc/>
         public T AddAttributes(
-            params (string name, string? value)[] attributes)
+            params (string Name, string? Value)[] attributes)
             => CreateAddingAttributes(attributes);
 
         /// <inheritdoc/>
@@ -28,8 +28,8 @@ namespace Maroontress.Html.Impl
         /// <inheritdoc/>
         public T AddEmptyAttributes(params string[] attributeNames)
         {
-            static (string name, string? value) ToTuples(string name)
-                => (name, value: null);
+            static (string Name, string? Value) ToTuples(string name)
+                => (name, null);
 
             return CreateAddingAttributes(attributeNames.Select(ToTuples));
         }
@@ -65,6 +65,6 @@ namespace Maroontress.Html.Impl
         /// A new element.
         /// </returns>
         protected abstract T CreateAddingAttributes(
-            IEnumerable<(string name, string? value)> attributes);
+            IEnumerable<(string Name, string? Value)> attributes);
     }
 }
