@@ -1,7 +1,7 @@
 # HtmlBuilder
 
-HtmlBuilder is a .NET library for building HTML documents.
-It depends on .NET Standard 2.1.
+HtmlBuilder is a C# class library building HTML documents. It depends on .NET
+Standard 2.1.
 
 ## Examples
 
@@ -37,7 +37,7 @@ var result = html.ToString();
 
 ### Attributes
 
-The HTML attributes can be manipulated as follows:
+You can manipulate the HTML attributes as follows:
 
 ```csharp
 var nodeOf = Nodes.NewFactory();
@@ -54,8 +54,7 @@ The string `result` represents as follows:
 
 > [See the result in .NET Fiddle](https://dotnetfiddle.net/kScW7Y)
 
-
-The empty attribute can be generated as follows:
+You can generate the empty attribute as follows:
 
 ```csharp
 var nodeOf = Nodes.NewFactory();
@@ -77,7 +76,7 @@ The string `result` represents as follows:
 
 > [See the result in .NET Fiddle](https://dotnetfiddle.net/mi6kIW)
 
-Note that the `id` and `class` attributes are treated specially as follows:
+Note that you need to handle the `id` and `class` attributes with  the following dedicated methods:
 
 ```csharp
 var nodeOf = Nodes.NewFactory();
@@ -95,8 +94,7 @@ The string `result` represents as follows:
 
 > [See the result in .NET Fiddle](https://dotnetfiddle.net/KT5GJZ)
 
-`Node` objects are immutable so that the Prototype pattern can be applied
-as follows:
+`Node` objects are immutable, so the Prototype pattern can be applied as follows:
 
 ```csharp
 var nodeOf = Nodes.NewFactory();
@@ -120,8 +118,7 @@ For example, <span class="reverse">low battery</span> and so on.</p>
 
 ### Character References
 
-To include Character References, use `CharacterReference` method
-as follows:
+To include Character References, use the `CharacterReference` method as follows:
 
 ```csharp
 var nodeOf = Nodes.NewFactory();
@@ -159,6 +156,17 @@ The string `result` represents as follows:
 
 > [See the result in .NET Fiddle](https://dotnetfiddle.net/AJFEnI)
 
+### Format
+
+To contain indentation and line breaks in the result string, use the
+`ToString(FormatOptions)` method as follows:
+
+```csharp
+var nodeOf = Nodes.NewFactory();
+var html = nodeOf.Html().Add(...);
+var result = html.ToString(FormatOptions.DefaultIndent);
+```
+
 ## API Reference
 
 - [Maroontress.Html](https://maroontress.github.io/HtmlBuilder/api/latest/html/Maroontress.Html.html) namespace
@@ -167,27 +175,33 @@ The string `result` represents as follows:
 
 ### Requirements to build
 
-- Visual Studio 2019 Version 16.3
-  or [.NET Core 3.0 SDK (SDK 3.0)][dotnet-core-sdk]
+- Visual Studio 2022 Version 17.2
+  or [.NET 6.0 SDK (SDK 6.0.300)][dotnet-sdk]
 
 ### How to get started
 
 ```plaintext
 git clone URL
 cd HtmlBuilder
-dotnet restore
 dotnet build
 ```
 
-### How to get test coverage report with Coverlet
+### Get the test coverage report with Coverlet
+
+Install [ReportGenerator][report-generator] as follows:
 
 ```plaintext
-dotnet test -p:CollectCoverage=true -p:CoverletOutputFormat=opencover \
-        --no-build HtmlBuilder.Test
-dotnet ANYWHERE/reportgenerator.dll \
-        --reports:HtmlBuilder.Test/coverage.opencover.xml \
-        --targetdir:Coverlet-html
+dotnet tool install -g dotnet-reportgenerator-globaltool
 ```
 
-[dotnet-core-sdk]:
-  https://dotnet.microsoft.com/download/dotnet-core/2.2
+Run all tests and get the report in the file `Coverlet-html/index.html`:
+
+```plaintext
+rm -rf MsTestResults
+dotnet test --collect:"XPlat Code Coverage" --results-directory MsTestResults \
+  && reportgenerator -reports:MsTestResults/*/coverage.cobertura.xml \
+    -targetdir:Coverlet-html
+```
+
+[dotnet-sdk]:
+  https://dotnet.microsoft.com/en-us/download
