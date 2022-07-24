@@ -1,35 +1,34 @@
-namespace Maroontress.Html.Impl
+namespace Maroontress.Html.Impl;
+
+using System.IO;
+
+/// <summary>
+/// The default visitor implementaion to write the HTML document into
+/// text.
+/// </summary>
+public sealed class DefaultTextWriterVisitor : AbstractTextWriterVisitor
 {
-    using System.IO;
-
     /// <summary>
-    /// The default visitor implementaion to write the HTML document into
-    /// text.
+    /// Initializes a new instance of the <see
+    /// cref="DefaultTextWriterVisitor"/> class.
     /// </summary>
-    public sealed class DefaultTextWriterVisitor : AbstractTextWriterVisitor
+    /// <param name="writer">
+    /// The text writer object for this visitor to output.
+    /// </param>
+    public DefaultTextWriterVisitor(TextWriter writer)
+        : base(writer)
     {
-        /// <summary>
-        /// Initializes a new instance of the <see
-        /// cref="DefaultTextWriterVisitor"/> class.
-        /// </summary>
-        /// <param name="writer">
-        /// The text writer object for this visitor to output.
-        /// </param>
-        public DefaultTextWriterVisitor(TextWriter writer)
-            : base(writer)
-        {
-        }
+    }
 
-        /// <inheritdoc/>
-        protected override void WriteStartTagHook(in TagStruct tag)
-        {
-            WriteStartTag(tag);
-        }
+    /// <inheritdoc/>
+    protected override void WriteStartTagHook(in TagStruct tag)
+    {
+        WriteStartTag(tag);
+    }
 
-        /// <inheritdoc/>
-        protected override void WriteEndTagHook(in TagStruct tag)
-        {
-            WriteEndTag(tag);
-        }
+    /// <inheritdoc/>
+    protected override void WriteEndTagHook(in TagStruct tag)
+    {
+        WriteEndTag(tag);
     }
 }

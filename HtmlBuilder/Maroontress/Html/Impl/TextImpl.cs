@@ -1,31 +1,30 @@
-namespace Maroontress.Html.Impl
+namespace Maroontress.Html.Impl;
+
+/// <summary>
+/// The default implementation of a text <see cref="Node"/>.
+/// </summary>
+public sealed class TextImpl : AbstractNode, Node
 {
     /// <summary>
-    /// The default implementation of a text <see cref="Node"/>.
+    /// Initializes a new instance of the <see cref="TextImpl"/> class.
     /// </summary>
-    public sealed class TextImpl : AbstractNode, Node
+    /// <param name="text">
+    /// The text of this node.
+    /// </param>
+    public TextImpl(string text)
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TextImpl"/> class.
-        /// </summary>
-        /// <param name="text">
-        /// The text of this node.
-        /// </param>
-        public TextImpl(string text)
-        {
-            Text = text;
-        }
-
-        /// <summary>
-        /// Gets the text of this node.
-        /// </summary>
-        private string Text { get; }
-
-        /// <inheritdoc/>
-        public override void Accept(NodeVisitor visitor)
-            => visitor.VisitText(Text);
-
-        /// <inheritdoc/>
-        protected override NodeKind GetKind() => NodeKind.Text;
+        Text = text;
     }
+
+    /// <summary>
+    /// Gets the text of this node.
+    /// </summary>
+    private string Text { get; }
+
+    /// <inheritdoc/>
+    public override void Accept(NodeVisitor visitor)
+        => visitor.VisitText(Text);
+
+    /// <inheritdoc/>
+    protected override NodeKind GetKind() => NodeKind.Text;
 }

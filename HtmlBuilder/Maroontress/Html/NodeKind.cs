@@ -1,28 +1,27 @@
-namespace Maroontress.Html
+namespace Maroontress.Html;
+
+/// <summary>
+/// Provides constants representing the kind of Node.
+/// </summary>
+public enum NodeKind
 {
     /// <summary>
-    /// Provides constants representing the kind of Node.
+    /// Represents a character reference node.
     /// </summary>
-    public enum NodeKind
-    {
-        /// <summary>
-        /// Represents a character reference node.
-        /// </summary>
-        CharacterReference,
+    CharacterReference,
 
-        /// <summary>
-        /// Represents a text node.
-        /// </summary>
-        Text,
+    /// <summary>
+    /// Represents a text node.
+    /// </summary>
+    Text,
 
-        /// <summary>
-        /// Represents an empty tag that cannot have child nodes.
-        /// </summary>
-        EmptyTag,
+    /// <summary>
+    /// Represents an empty tag that cannot have child nodes.
+    /// </summary>
+    EmptyTag,
 
-        /// <summary>
-        /// Represents a tag that can have child nodes.
-        /// </summary>
-        Tag,
-    }
+    /// <summary>
+    /// Represents a tag that can have child nodes.
+    /// </summary>
+    Tag,
 }

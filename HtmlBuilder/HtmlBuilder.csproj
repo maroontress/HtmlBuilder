@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.1</TargetFramework>
     <RootNamespace>Maroontress.HtmlBuilder</RootNamespace>
     <AssemblyName>Maroontress.HtmlBuilder</AssemblyName>
-    <LangVersion>8.0</LangVersion>
+    <LangVersion>10</LangVersion>
     <Nullable>enable</Nullable>
     <DocumentationFile>dcx\Maroontress.HtmlBuilder.xml</DocumentationFile>
   </PropertyGroup>
@@ -16,7 +16,7 @@
     <PackageProjectUrl>https://maroontress.github.io/HtmlBuilder/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/maroontress/HtmlBuilder</RepositoryUrl>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <Description>HtmlBuilder is a .NET library for building HTML documents. It depends on .NET Standard 2.1.</Description>
+    <Description>HtmlBuilder is a C# class library building HTML documents. It depends on .NET Standard 2.1.</Description>
     <PackageReleaseNotes>See https://maroontress.github.io/HtmlBuilder/releasenotes.html</PackageReleaseNotes>
     <Copyright>Copyright (c) 2019 Maroontress Fast Software</Copyright>
     <PackageTags>HTML</PackageTags>
@@ -24,6 +24,7 @@
     <Version>1.0.4.0</Version>
     <RepositoryType />
     <Company>Maroontress Fast Software</Company>
+    <PackageLicenseFile>COPYRIGHT.txt</PackageLicenseFile>
   </PropertyGroup>
 
 
@@ -44,10 +45,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="StyleChecker" Version="1.0.25" PrivateAssets="all" />
+    <PackageReference Include="StyleChecker" Version="1.0.27" PrivateAssets="all" />
     <PackageReference Include="StyleChecker.Annotations" Version="1.0.1" />
-    <PackageReference Include="System.Collections.Immutable" Version="1.7.1" />
-    <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.164" PrivateAssets="all" />
+    <PackageReference Include="Maroontress.Collection" Version="1.0.0" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.435" PrivateAssets="all" />
   </ItemGroup>
 
   <ItemGroup>

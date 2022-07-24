@@ -1,216 +1,215 @@
-namespace Maroontress.Html.Impl
+namespace Maroontress.Html.Impl;
+
+using System;
+using System.Collections.Immutable;
+using System.IO;
+using System.Linq;
+
+/// <summary>
+/// The visitor implementaion to write the HTML document into text with
+/// indentation.
+/// </summary>
+public sealed class IndentTextWriterVisitor : AbstractTextWriterVisitor
 {
-    using System;
-    using System.Collections.Immutable;
-    using System.IO;
-    using System.Linq;
+    /*
+        <flow>
+          (text|<phrase>...</phrase>|<empty/>)*
+        </flow>
+    */
+    private static readonly ImmutableHashSet<string> ChildrenArePhrasingSet
+            = new[]
+        {
+            // children: phrasing
+            "h1",
+            "h2",
+            "h3",
+            "h4",
+            "h5",
+            "h6",
+            "legend",
+            "p",
+            "pre",
+            "rb",
+            "rp",
+            "rt",
+            "rtc",
+            "summary",
+
+            // children: text
+            "option",
+            "textarea",
+            "title",
+        }.ToImmutableHashSet();
+
+    private static readonly ImmutableHashSet<string> ParentIsPhrasingSet
+            = new[]
+        {
+            "a",
+            "abbr",
+            "b",
+            "bdi",
+            "bdo",
+            "button",
+            "cite",
+            "code",
+            "data",
+            "datalist",
+            "del",
+            "dfn",
+            "em",
+            "i",
+            "ins",
+            "kbd",
+            "label",
+            "mark",
+            "meter",
+            "output",
+            "progress",
+            "q",
+            "ruby",
+            "s",
+            "samp",
+            "small",
+            "span",
+            "strong",
+            "sub",
+            "sup",
+            "time",
+            "u",
+            "var",
+        }.ToImmutableHashSet();
+
+    private readonly int indentWidth;
+    private readonly string newLine;
+    private int indent;
+    private string spaces;
+    private int phraseNest;
+    private bool needsLineFeed;
 
     /// <summary>
-    /// The visitor implementaion to write the HTML document into text with
-    /// indentation.
+    /// Initializes a new instance of the <see
+    /// cref="IndentTextWriterVisitor"/> class.
     /// </summary>
-    public sealed class IndentTextWriterVisitor : AbstractTextWriterVisitor
+    /// <param name="writer">
+    /// The text writer object for this visitor to output.
+    /// </param>
+    /// <param name="options">
+    /// The format options.
+    /// </param>
+    public IndentTextWriterVisitor(
+            TextWriter writer, FormatOptions options)
+        : base(writer)
     {
-        /*
-            <flow>
-              (text|<phrase>...</phrase>|<empty/>)*
-            </flow>
-        */
-        private static readonly ImmutableHashSet<string> ChildrenArePhrasingSet
-                = new[]
-            {
-                // children: phrasing
-                "h1",
-                "h2",
-                "h3",
-                "h4",
-                "h5",
-                "h6",
-                "legend",
-                "p",
-                "pre",
-                "rb",
-                "rp",
-                "rt",
-                "rtc",
-                "summary",
+        indentWidth = options.IndentWidth;
+        newLine = options.NewLine;
+        indent = 0;
+        spaces = string.Empty;
+        phraseNest = 0;
+        needsLineFeed = false;
+    }
 
-                // children: text
-                "option",
-                "textarea",
-                "title",
-            }.ToImmutableHashSet();
-
-        private static readonly ImmutableHashSet<string> ParentIsPhrasingSet
-                = new[]
-            {
-                "a",
-                "abbr",
-                "b",
-                "bdi",
-                "bdo",
-                "button",
-                "cite",
-                "code",
-                "data",
-                "datalist",
-                "del",
-                "dfn",
-                "em",
-                "i",
-                "ins",
-                "kbd",
-                "label",
-                "mark",
-                "meter",
-                "output",
-                "progress",
-                "q",
-                "ruby",
-                "s",
-                "samp",
-                "small",
-                "span",
-                "strong",
-                "sub",
-                "sup",
-                "time",
-                "u",
-                "var",
-            }.ToImmutableHashSet();
-
-        private readonly int indentWidth;
-        private readonly string newLine;
-        private int indent;
-        private string spaces;
-        private int phraseNest;
-        private bool needsLineFeed;
-
-        /// <summary>
-        /// Initializes a new instance of the <see
-        /// cref="IndentTextWriterVisitor"/> class.
-        /// </summary>
-        /// <param name="writer">
-        /// The text writer object for this visitor to output.
-        /// </param>
-        /// <param name="options">
-        /// The format options.
-        /// </param>
-        public IndentTextWriterVisitor(
-                TextWriter writer, FormatOptions options)
-            : base(writer)
+    /// <inheritdoc/>
+    protected override void WriteStartTagHook(in TagStruct tag)
+    {
+        var name = tag.Name;
+        if (ParentIsPhrasingSet.Contains(name))
         {
-            indentWidth = options.IndentWidth;
-            newLine = options.NewLine;
-            indent = 0;
-            spaces = string.Empty;
-            phraseNest = 0;
-            needsLineFeed = false;
-        }
-
-        /// <inheritdoc/>
-        protected override void WriteStartTagHook(in TagStruct tag)
-        {
-            var name = tag.Name;
-            if (ParentIsPhrasingSet.Contains(name))
-            {
-                BeforeEmptyOrText();
-                WriteStartTag(tag);
-                return;
-            }
-            if (ChildrenArePhrasingSet.Contains(name))
-            {
-                if (phraseNest == 0)
-                {
-                    WriteIndent();
-                }
-                ++phraseNest;
-                WriteStartTag(tag);
-                return;
-            }
-            if (phraseNest > 0)
-            {
-                WriteStartTag(tag);
-                return;
-            }
-            WriteIndent();
-            indent += indentWidth;
+            BeforeEmptyOrText();
             WriteStartTag(tag);
-            ForceLineFeed();
+            return;
         }
-
-        /// <inheritdoc/>
-        protected override void WriteEndTagHook(in TagStruct tag)
+        if (ChildrenArePhrasingSet.Contains(name))
         {
-            var name = tag.Name;
-            if (ParentIsPhrasingSet.Contains(name))
-            {
-                WriteEndTag(tag);
-                return;
-            }
-            if (ChildrenArePhrasingSet.Contains(name))
-            {
-                WriteEndTag(tag);
-                --phraseNest;
-                if (phraseNest == 0)
-                {
-                    ForceLineFeed();
-                }
-                return;
-            }
-            if (phraseNest > 0)
-            {
-                WriteEndTag(tag);
-                return;
-            }
-            indent -= indentWidth;
-            WriteIndent();
-            WriteEndTag(tag);
-            ForceLineFeed();
-        }
-
-        /// <inheritdoc/>
-        protected override void BeforeEmptyOrText()
-        {
-            if (!needsLineFeed && phraseNest == 0)
+            if (phraseNest == 0)
             {
                 WriteIndent();
             }
-            needsLineFeed = true;
+            ++phraseNest;
+            WriteStartTag(tag);
+            return;
         }
-
-        private static string NewSpaces(int length)
+        if (phraseNest > 0)
         {
-            return string.Concat(Enumerable.Repeat(" ", length));
+            WriteStartTag(tag);
+            return;
         }
+        WriteIndent();
+        indent += indentWidth;
+        WriteStartTag(tag);
+        ForceLineFeed();
+    }
 
-        private void LineFeed()
+    /// <inheritdoc/>
+    protected override void WriteEndTagHook(in TagStruct tag)
+    {
+        var name = tag.Name;
+        if (ParentIsPhrasingSet.Contains(name))
         {
-            if (!needsLineFeed)
+            WriteEndTag(tag);
+            return;
+        }
+        if (ChildrenArePhrasingSet.Contains(name))
+        {
+            WriteEndTag(tag);
+            --phraseNest;
+            if (phraseNest == 0)
             {
-                return;
+                ForceLineFeed();
             }
-            ForceLineFeed();
+            return;
         }
-
-        private void ForceLineFeed()
+        if (phraseNest > 0)
         {
-            Write(newLine);
-            needsLineFeed = false;
+            WriteEndTag(tag);
+            return;
         }
+        indent -= indentWidth;
+        WriteIndent();
+        WriteEndTag(tag);
+        ForceLineFeed();
+    }
 
-        private void WriteIndent()
+    /// <inheritdoc/>
+    protected override void BeforeEmptyOrText()
+    {
+        if (!needsLineFeed && phraseNest == 0)
         {
-            LineFeed();
-            if (indent == 0)
-            {
-                return;
-            }
-            if (spaces.Length < indent)
-            {
-                spaces = NewSpaces(indent);
-            }
-            Write(spaces.AsSpan(0, indent));
+            WriteIndent();
         }
+        needsLineFeed = true;
+    }
+
+    private static string NewSpaces(int length)
+    {
+        return string.Concat(Enumerable.Repeat(" ", length));
+    }
+
+    private void LineFeed()
+    {
+        if (!needsLineFeed)
+        {
+            return;
+        }
+        ForceLineFeed();
+    }
+
+    private void ForceLineFeed()
+    {
+        Write(newLine);
+        needsLineFeed = false;
+    }
+
+    private void WriteIndent()
+    {
+        LineFeed();
+        if (indent == 0)
+        {
+            return;
+        }
+        if (spaces.Length < indent)
+        {
+            spaces = NewSpaces(indent);
+        }
+        Write(spaces.AsSpan(0, indent));
     }
 }
