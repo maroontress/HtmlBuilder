@@ -205,3 +205,5 @@ dotnet test --collect:"XPlat Code Coverage" --results-directory MsTestResults \
 
 [dotnet-sdk]:
   https://dotnet.microsoft.com/en-us/download
+[report-generator]:
+  https://github.com/danielpalme/ReportGenerator
