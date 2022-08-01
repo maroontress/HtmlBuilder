@@ -42,7 +42,7 @@ public sealed class TagImpl : BaseTagImpl<Tag>, Tag
 
     /// <inheritdoc/>
     public Tag Add(IEnumerable<Node> children)
-        => new TagImpl(this, d =>
+            => new TagImpl(this, d =>
         {
             d.Children = d.Children.Concat(children)
                 .ToImmutableList();

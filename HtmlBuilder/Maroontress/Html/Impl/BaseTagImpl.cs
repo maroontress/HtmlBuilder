@@ -57,9 +57,8 @@ public abstract class BaseTagImpl<T> : AbstractNode, BaseTag<T>
     /// Gets a new element with adding the specified attributes.
     /// </summary>
     /// <param name="attributes">
-    /// Tuples of the name and value representing an attribute. If the
-    /// value of the tuple is <c>null</c>, it represents the empty
-    /// attribute.
+    /// Tuples of the name and value representing an attribute. If the value of
+    /// the tuple is <c>null</c>, it represents the empty attribute.
     /// </param>
     /// <returns>
     /// A new element.

@@ -1,3 +1,7 @@
+#pragma warning disable SA1114 // Parameter list should follow declaration
+#pragma warning disable SA1115 // Parameter should follow comma
+#pragma warning disable SA1515 // Single-line comment should be preceded by blank line
+
 namespace Maroontress.Html.Impl;
 
 using System;
@@ -17,8 +21,7 @@ public sealed class IndentTextWriterVisitor : AbstractTextWriterVisitor
         </flow>
     */
     private static readonly ImmutableHashSet<string> ChildrenArePhrasingSet
-            = new[]
-        {
+        = ImmutableHashSet.Create(
             // children: phrasing
             "h1",
             "h2",
@@ -38,12 +41,10 @@ public sealed class IndentTextWriterVisitor : AbstractTextWriterVisitor
             // children: text
             "option",
             "textarea",
-            "title",
-        }.ToImmutableHashSet();
+            "title");
 
     private static readonly ImmutableHashSet<string> ParentIsPhrasingSet
-            = new[]
-        {
+        = ImmutableHashSet.Create(
             "a",
             "abbr",
             "b",
@@ -76,8 +77,7 @@ public sealed class IndentTextWriterVisitor : AbstractTextWriterVisitor
             "sup",
             "time",
             "u",
-            "var",
-        }.ToImmutableHashSet();
+            "var");
 
     private readonly int indentWidth;
     private readonly string newLine;
@@ -87,8 +87,8 @@ public sealed class IndentTextWriterVisitor : AbstractTextWriterVisitor
     private bool needsLineFeed;
 
     /// <summary>
-    /// Initializes a new instance of the <see
-    /// cref="IndentTextWriterVisitor"/> class.
+    /// Initializes a new instance of the <see cref="IndentTextWriterVisitor"/>
+    /// class.
     /// </summary>
     /// <param name="writer">
     /// The text writer object for this visitor to output.
@@ -96,8 +96,7 @@ public sealed class IndentTextWriterVisitor : AbstractTextWriterVisitor
     /// <param name="options">
     /// The format options.
     /// </param>
-    public IndentTextWriterVisitor(
-            TextWriter writer, FormatOptions options)
+    public IndentTextWriterVisitor(TextWriter writer, FormatOptions options)
         : base(writer)
     {
         indentWidth = options.IndentWidth;
@@ -120,7 +119,7 @@ public sealed class IndentTextWriterVisitor : AbstractTextWriterVisitor
         }
         if (ChildrenArePhrasingSet.Contains(name))
         {
-            if (phraseNest == 0)
+            if (phraseNest is 0)
             {
                 WriteIndent();
             }
@@ -152,7 +151,7 @@ public sealed class IndentTextWriterVisitor : AbstractTextWriterVisitor
         {
             WriteEndTag(tag);
             --phraseNest;
-            if (phraseNest == 0)
+            if (phraseNest is 0)
             {
                 ForceLineFeed();
             }
@@ -172,7 +171,7 @@ public sealed class IndentTextWriterVisitor : AbstractTextWriterVisitor
     /// <inheritdoc/>
     protected override void BeforeEmptyOrText()
     {
-        if (!needsLineFeed && phraseNest == 0)
+        if (!needsLineFeed && phraseNest is 0)
         {
             WriteIndent();
         }
@@ -202,7 +201,7 @@ public sealed class IndentTextWriterVisitor : AbstractTextWriterVisitor
     private void WriteIndent()
     {
         LineFeed();
-        if (indent == 0)
+        if (indent is 0)
         {
             return;
         }

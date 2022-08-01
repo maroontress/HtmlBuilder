@@ -6,8 +6,8 @@ namespace Maroontress.Html.Impl;
 public sealed class CharacterReferenceImpl : AbstractNode, Node
 {
     /// <summary>
-    /// Initializes a new instance of the <see
-    /// cref="CharacterReferenceImpl"/> class.
+    /// Initializes a new instance of the <see cref="CharacterReferenceImpl"/>
+    /// class.
     /// </summary>
     /// <param name="text">
     /// The text representings the character reference of this node.
@@ -18,8 +18,8 @@ public sealed class CharacterReferenceImpl : AbstractNode, Node
     }
 
     /// <summary>
-    /// Initializes a new instance of the <see
-    /// cref="CharacterReferenceImpl"/> class.
+    /// Initializes a new instance of the <see cref="CharacterReferenceImpl"/>
+    /// class.
     /// </summary>
     /// <param name="codePoint">
     /// The code point.
@@ -40,5 +40,6 @@ public sealed class CharacterReferenceImpl : AbstractNode, Node
         => visitor.VisitEntity(Text);
 
     /// <inheritdoc/>
-    protected override NodeKind GetKind() => NodeKind.CharacterReference;
+    protected override NodeKind GetKind()
+        => NodeKind.CharacterReference;
 }

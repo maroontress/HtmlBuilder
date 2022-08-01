@@ -1,8 +1,7 @@
 namespace Maroontress.Html;
 
 /// <summary>
-/// Provides operations to be performed on nodes of an HTML document
-/// structure.
+/// Provides operations to be performed on nodes of an HTML document structure.
 /// </summary>
 /// <remarks>
 /// This interface is a part of the visitor pattern.
@@ -27,8 +26,8 @@ public interface NodeVisitor
     void VisitEntity(string text);
 
     /// <summary>
-    /// Performs the operation on the empty <see cref="Tag"/>
-    /// representing a void element.
+    /// Performs the operation on the empty <see cref="Tag"/> representing a
+    /// void element.
     /// </summary>
     /// <param name="tag">
     /// The <see cref="TagStruct"/> object that the tag object contains.

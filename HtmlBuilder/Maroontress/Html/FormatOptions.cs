@@ -8,18 +8,17 @@ using System;
 public sealed class FormatOptions
 {
     /// <summary>
-    /// Represents the default indentation, where the indent width is two
-    /// and the new line is platform-dependent.
+    /// Represents the default indentation, where the indent width is two and
+    /// the new line is platform-dependent.
     /// </summary>
     public static readonly FormatOptions DefaultIndent = new();
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="FormatOptions"/>
-    /// class.
+    /// Initializes a new instance of the <see cref="FormatOptions"/> class.
     /// </summary>
     /// <param name="indentWidth">
-    /// The indent width, which must be greater than or equal to 0, and
-    /// must not be greater than 8.
+    /// The indent width, which must be greater than or equal to 0, and must
+    /// not be greater than eight.
     /// </param>
     /// <param name="newLine">
     /// The string representing a new line. <c>null</c> means <see
