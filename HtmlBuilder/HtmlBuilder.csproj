@@ -21,12 +21,11 @@
     <Copyright>Copyright (c) 2019 Maroontress Fast Software</Copyright>
     <PackageTags>HTML</PackageTags>
     <NoPackageAnalysis>true</NoPackageAnalysis>
-    <Version>1.0.4.0</Version>
+    <Version>1.1.0.0</Version>
     <RepositoryType />
     <Company>Maroontress Fast Software</Company>
     <PackageLicenseFile>COPYRIGHT.txt</PackageLicenseFile>
   </PropertyGroup>
-
 
   <ItemGroup>
     <Compile Remove="dcx\**" />
