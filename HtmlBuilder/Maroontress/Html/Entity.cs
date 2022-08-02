@@ -9,8 +9,8 @@ namespace Maroontress.Html;
 /// <remarks>
 /// <para>
 /// Some names of the properties that this class contains violate the naming
-/// convention so as to enhance convenience. The property name represents
-/// the character reference name itself, which is case sensitive.
+/// convention so as to enhance convenience. The property name represents the
+/// character reference name itself, which is case sensitive.
 /// </para>
 /// <para>
 /// See <a

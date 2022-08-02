@@ -50,15 +50,14 @@ public static class Attributes
         = ImmutableHashSet.Create(' ', '\x09', '\x0a', '\x0c', '\x0d');
 
     /// <summary>
-    /// Gets the function that returns the modified <c>TagStruct</c>
-    /// object.
+    /// Gets the function that returns the modified <c>TagStruct</c> object.
     /// </summary>
     /// <param name="values">
     /// The values of the <c>class</c> attribute to be added.
     /// </param>
     /// <returns>
-    /// The function that takes the original <c>TagStruct</c> and returns
-    /// the modified <c>TagStruct</c>.
+    /// The function that takes the original <c>TagStruct</c> and returns the
+    /// modified <c>TagStruct</c>.
     /// </returns>
     public static Func<TagStruct, TagStruct> GetAddingClassModifier(
             IEnumerable<string> values)
@@ -70,18 +69,17 @@ public static class Attributes
         });
 
     /// <summary>
-    /// Gets the function that returns the modified <c>TagStruct</c>
-    /// object.
+    /// Gets the function that returns the modified <c>TagStruct</c> object.
     /// </summary>
     /// <param name="values">
     /// The values of the <c>class</c> attribute to be replaced.
     /// </param>
     /// <returns>
-    /// The function that takes the original <c>TagStruct</c> and returns
-    /// the modified <c>TagStruct</c>.
+    /// The function that takes the original <c>TagStruct</c> and returns the
+    /// modified <c>TagStruct</c>.
     /// </returns>
     public static Func<TagStruct, TagStruct> GetReplacingClassModifier(
-        IEnumerable<string> values)
+            IEnumerable<string> values)
         => GetClassModifier(values, d =>
         {
             d.Classes = values.ToImmutableList();
@@ -89,15 +87,14 @@ public static class Attributes
         });
 
     /// <summary>
-    /// Gets the function that returns the modified <c>TagStruct</c>
-    /// object.
+    /// Gets the function that returns the modified <c>TagStruct</c> object.
     /// </summary>
     /// <param name="value">
     /// The value of the <c>id</c> attribute to be replaced.
     /// </param>
     /// <returns>
-    /// The function that takes the original <c>TagStruct</c> and returns
-    /// the modified <c>TagStruct</c>.
+    /// The function that takes the original <c>TagStruct</c> and returns the
+    /// modified <c>TagStruct</c>.
     /// </returns>
     public static Func<TagStruct, TagStruct> GetReplacingIdModifier(
         string value)
@@ -200,7 +197,7 @@ public static class Attributes
     /// </returns>
     private static bool IsValid(string name)
     {
-        if (name.Length == 0)
+        if (name.Length is 0)
         {
             return false;
         }
@@ -227,7 +224,7 @@ public static class Attributes
     /// </returns>
     private static bool IsNonEmptyAndContainsNoSpaces(string value)
     {
-        if (value.Length == 0)
+        if (value.Length is 0)
         {
             return false;
         }

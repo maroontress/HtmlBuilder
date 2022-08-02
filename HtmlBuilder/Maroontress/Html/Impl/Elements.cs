@@ -17,8 +17,7 @@ public static class Elements
         = NewValidCharSet();
 
     /// <summary>
-    /// Gets a new <see cref="TagStruct"/> object that has the specified
-    /// name.
+    /// Gets a new <see cref="TagStruct"/> object that has the specified name.
     /// </summary>
     /// <param name="name">
     /// The tag name.
@@ -54,7 +53,7 @@ public static class Elements
     /// </returns>
     private static bool IsValid(string name)
     {
-        if (name.Length == 0)
+        if (name.Length is 0)
         {
             return false;
         }

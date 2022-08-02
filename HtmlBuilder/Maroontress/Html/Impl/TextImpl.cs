@@ -26,5 +26,6 @@ public sealed class TextImpl : AbstractNode, Node
         => visitor.VisitText(Text);
 
     /// <inheritdoc/>
-    protected override NodeKind GetKind() => NodeKind.Text;
+    protected override NodeKind GetKind()
+        => NodeKind.Text;
 }

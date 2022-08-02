@@ -25,8 +25,8 @@ public interface Node
     void Accept(NodeVisitor visitor);
 
     /// <summary>
-    /// Returns the string representing the current object, formatting it
-    /// with the spcified <see cref="FormatOptions"/>.
+    /// Returns the string representing the current object, formatting it with
+    /// the spcified <see cref="FormatOptions"/>.
     /// </summary>
     /// <param name="options">
     /// The format options.

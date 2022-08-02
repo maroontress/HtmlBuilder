@@ -3,8 +3,7 @@ namespace Maroontress.Html;
 using StyleChecker.Annotations;
 
 /// <summary>
-/// The factory of the <see cref="Node"/> and <see cref="Html.Tag"/>
-/// objects.
+/// The factory of the <see cref="Node"/> and <see cref="Html.Tag"/> objects.
 /// </summary>
 /// <remarks>
 /// See <a href="https://www.w3.org/TR/html52/fullindex.html#index-elements">
@@ -36,14 +35,14 @@ public interface NodeFactory
     EmptyTag Area { get; }
 
     /// <summary>
-    /// Gets <c>article</c> element representing self-contained
-    /// syndicatable or reusable composition.
+    /// Gets <c>article</c> element representing self-contained syndicatable or
+    /// reusable composition.
     /// </summary>
     Tag Article { get; }
 
     /// <summary>
-    /// Gets <c>aside</c> element representing sidebar for tangentially
-    /// related content.
+    /// Gets <c>aside</c> element representing sidebar for tangentially related
+    /// content.
     /// </summary>
     Tag Aside { get; }
 
@@ -71,8 +70,7 @@ public interface NodeFactory
     Tag Bdi { get; }
 
     /// <summary>
-    /// Gets <c>bdo</c> element representing text directionality
-    /// formatting.
+    /// Gets <c>bdo</c> element representing text directionality formatting.
     /// </summary>
     Tag Bdo { get; }
 
@@ -88,8 +86,8 @@ public interface NodeFactory
     Tag Body { get; }
 
     /// <summary>
-    /// Gets <c>br</c> element representing line break, e.g., in poem or
-    /// postal address.
+    /// Gets <c>br</c> element representing line break, e.g., in poem or postal
+    /// address.
     /// </summary>
     EmptyTag Br { get; }
 
@@ -126,8 +124,7 @@ public interface NodeFactory
     EmptyTag Col { get; }
 
     /// <summary>
-    /// Gets <c>colgroup</c> element representing group of columns in a
-    /// table.
+    /// Gets <c>colgroup</c> element representing group of columns in a table.
     /// </summary>
     Tag Colgroup { get; }
 
@@ -145,8 +142,8 @@ public interface NodeFactory
     Tag Datalist { get; }
 
     /// <summary>
-    /// Gets <c>dd</c> element representing content for corresponding
-    /// <c>dt</c> element(s).
+    /// Gets <c>dd</c> element representing content for corresponding <c>dt</c>
+    /// element(s).
     /// </summary>
     Tag Dd { get; }
 
@@ -156,8 +153,8 @@ public interface NodeFactory
     Tag Del { get; }
 
     /// <summary>
-    /// Gets <c>details</c> element representing disclosure control for
-    /// hiding details.
+    /// Gets <c>details</c> element representing disclosure control for hiding
+    /// details.
     /// </summary>
     Tag Details { get; }
 
@@ -177,14 +174,14 @@ public interface NodeFactory
     Tag Div { get; }
 
     /// <summary>
-    /// Gets <c>dl</c> element representing association list consisting of
-    /// zero or more name-value groups.
+    /// Gets <c>dl</c> element representing association list consisting of zero
+    /// or more name-value groups.
     /// </summary>
     Tag Dl { get; }
 
     /// <summary>
-    /// Gets <c>dt</c> element representing legend for corresponding
-    /// <c>dd</c> element(s).
+    /// Gets <c>dt</c> element representing legend for corresponding <c>dd</c>
+    /// element(s).
     /// </summary>
     Tag Dt { get; }
 
@@ -213,14 +210,12 @@ public interface NodeFactory
     Tag Figcaption { get; }
 
     /// <summary>
-    /// Gets <c>figure</c> element representing figure with optional
-    /// caption.
+    /// Gets <c>figure</c> element representing figure with optional caption.
     /// </summary>
     Tag Figure { get; }
 
     /// <summary>
-    /// Gets <c>footer</c> element representing footer for a page or
-    /// section.
+    /// Gets <c>footer</c> element representing footer for a page or section.
     /// </summary>
     Tag Footer { get; }
 
@@ -262,14 +257,13 @@ public interface NodeFactory
     Tag H6 { get; }
 
     /// <summary>
-    /// Gets <c>head</c> element representing container for document
-    /// metadata.
+    /// Gets <c>head</c> element representing container for document metadata.
     /// </summary>
     Tag Head { get; }
 
     /// <summary>
-    /// Gets <c>header</c> element representing introductory or
-    /// navigational aids for a page or section.
+    /// Gets <c>header</c> element representing introductory or navigational
+    /// aids for a page or section.
     /// </summary>
     Tag Header { get; }
 
@@ -325,8 +319,7 @@ public interface NodeFactory
     Tag Label { get; }
 
     /// <summary>
-    /// Gets <c>legend</c> element representing caption for
-    /// <c>fieldset</c>.
+    /// Gets <c>legend</c> element representing caption for <c>fieldset</c>.
     /// </summary>
     Tag Legend { get; }
 
@@ -370,22 +363,20 @@ public interface NodeFactory
     /* N */
 
     /// <summary>
-    /// Gets <c>nav</c> element representing section with navigational
-    /// links.
+    /// Gets <c>nav</c> element representing section with navigational links.
     /// </summary>
     Tag Nav { get; }
 
     /// <summary>
-    /// Gets <c>noscript</c> element representing fallback content for
-    /// script.
+    /// Gets <c>noscript</c> element representing fallback content for script.
     /// </summary>
     Tag Noscript { get; }
 
     /* O */
 
     /// <summary>
-    /// Gets <c>object</c> element representing image, nested browsing
-    /// context, or plugin.
+    /// Gets <c>object</c> element representing image, nested browsing context,
+    /// or plugin.
     /// </summary>
     Tag Object { get; }
 
@@ -395,14 +386,14 @@ public interface NodeFactory
     Tag Ol { get; }
 
     /// <summary>
-    /// Gets <c>optgroup</c> element representing group of options in a
-    /// list box.
+    /// Gets <c>optgroup</c> element representing group of options in a list
+    /// box.
     /// </summary>
     Tag Optgroup { get; }
 
     /// <summary>
-    /// Gets <c>option</c> element representing option in a list box or
-    /// combo box control.
+    /// Gets <c>option</c> element representing option in a list box or combo
+    /// box control.
     /// </summary>
     Tag Option { get; }
 
@@ -464,8 +455,7 @@ public interface NodeFactory
     Tag Rt { get; }
 
     /// <summary>
-    /// Gets <c>rtc</c> element representing ruby annotation text
-    /// container.
+    /// Gets <c>rtc</c> element representing ruby annotation text container.
     /// </summary>
     Tag Rtc { get; }
 
@@ -508,8 +498,8 @@ public interface NodeFactory
     Tag Small { get; }
 
     /// <summary>
-    /// Gets <c>source</c> element representing media source for video or
-    /// audio or as image source for picture.
+    /// Gets <c>source</c> element representing media source for video or audio
+    /// or as image source for picture.
     /// </summary>
     EmptyTag Source { get; }
 
@@ -524,8 +514,7 @@ public interface NodeFactory
     Tag Strong { get; }
 
     /// <summary>
-    /// Gets <c>style</c> element representing embedded styling
-    /// information.
+    /// Gets <c>style</c> element representing embedded styling information.
     /// </summary>
     Tag Style { get; }
 
@@ -572,8 +561,7 @@ public interface NodeFactory
     Tag Textarea { get; }
 
     /// <summary>
-    /// Gets <c>tfoot</c> element representing group of footer rows in a
-    /// table.
+    /// Gets <c>tfoot</c> element representing group of footer rows in a table.
     /// </summary>
     Tag Tfoot { get; }
 
@@ -589,8 +577,8 @@ public interface NodeFactory
     Tag Thead { get; }
 
     /// <summary>
-    /// Gets <c>time</c> element representing machine-readable equivalent
-    /// of date- or time-related data.
+    /// Gets <c>time</c> element representing machine-readable equivalent of
+    /// date- or time-related data.
     /// </summary>
     Tag Time { get; }
 
@@ -695,8 +683,7 @@ public interface NodeFactory
     /// <returns>
     /// The node corresponding to the character reference in the form
     /// "<c>&amp;#x</c>", that is followed by one or more ASCII hex digits
-    /// representing the specified code point, that is followed by
-    /// "<c>;</c>".
+    /// representing the specified code point, that is followed by "<c>;</c>".
     /// </returns>
     [return: DoNotIgnore]
     Node CharacterReference(int codePoint);

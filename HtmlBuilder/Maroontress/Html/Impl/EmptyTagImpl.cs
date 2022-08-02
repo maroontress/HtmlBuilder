@@ -37,14 +37,16 @@ public sealed class EmptyTagImpl : BaseTagImpl<EmptyTag>, EmptyTag
     }
 
     /// <inheritdoc/>
-    public override string Name => data.Name;
+    public override string Name
+        => data.Name;
 
     /// <inheritdoc/>
     public override void Accept(NodeVisitor visitor)
         => visitor.VisitEmptyTag(in data);
 
     /// <inheritdoc/>
-    protected override NodeKind GetKind() => NodeKind.EmptyTag;
+    protected override NodeKind GetKind()
+        => NodeKind.EmptyTag;
 
     /// <inheritdoc/>
     protected override EmptyTag Create(Func<TagStruct, TagStruct> modify)

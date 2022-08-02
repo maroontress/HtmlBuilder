@@ -12,9 +12,9 @@ using StyleChecker.Annotations;
 public interface Tag : Node, BaseTag<Tag>
 {
     /// <summary>
-    /// Gets a new <see cref="Tag"/> object with the child <see
-    /// cref="Node"/>s that represent both the children of this object and
-    /// the specified nodes.
+    /// Gets a new <see cref="Tag"/> object with the child <see cref="Node"/>s
+    /// that represent both the children of this object and the specified
+    /// nodes.
     /// </summary>
     /// <remarks>
     /// The node that this method returns has the same attributes of this
@@ -30,9 +30,9 @@ public interface Tag : Node, BaseTag<Tag>
     Tag Add(params Node[] children);
 
     /// <summary>
-    /// Gets a new <see cref="Tag"/> object with the child <see
-    /// cref="Node"/>s that represent both the children of this object and
-    /// the specified nodes.
+    /// Gets a new <see cref="Tag"/> object with the child <see cref="Node"/>s
+    /// that represent both the children of this object and the specified
+    /// nodes.
     /// </summary>
     /// <remarks>
     /// The node that this method returns has the same attributes of this
@@ -48,9 +48,9 @@ public interface Tag : Node, BaseTag<Tag>
     Tag Add(IEnumerable<Node> children);
 
     /// <summary>
-    /// Gets a new <see cref="Tag"/> object with the child <see
-    /// cref="Node"/>s that represent both the children of this object and
-    /// the new text node containing the specified string.
+    /// Gets a new <see cref="Tag"/> object with the child <see cref="Node"/>s
+    /// that represent both the children of this object and the new text node
+    /// containing the specified string.
     /// </summary>
     /// <remarks>
     /// The node that this method returns has the same attributes of this

@@ -3,8 +3,7 @@ namespace Maroontress.Html.Impl;
 using System.IO;
 
 /// <summary>
-/// The default visitor implementaion to write the HTML document into
-/// text.
+/// The default visitor implementaion to write the HTML document into text.
 /// </summary>
 public sealed class DefaultTextWriterVisitor : AbstractTextWriterVisitor
 {
